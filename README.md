@@ -15,13 +15,11 @@
 
 #### Holarchy Core
 
-<div style="display: grid; grid-template-columns: 300px 1fr">
-    <div style="border: 1px solid black">test test</div>
+<div style="border-bottom: 1px black solid">test test</div>
 
 ```javascript
 const actionRequest = {holarchy: {cm: {actions: {ocd: {clearBooleanFlag: {path: "~. or #."}}}}}}
 ```
-</div>
 
 <table>
     <tr>
