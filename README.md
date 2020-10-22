@@ -14,16 +14,13 @@
 * [Cell Process Proxy](#Cell-Process-Proxy)
 
 #### Holarchy Core
-<div style="border: 1px solid black"></div>
-<hr>
+
 <div style="display: grid; grid-template-columns: 300px 1fr">
     <div style="border: 1px solid black">test test</div>
-    <div style="overflow: scroll">
 
 ```javascript
 const actionRequest = {holarchy: {cm: {actions: {ocd: {clearBooleanFlag: {path: "~. or #."}}}}}}
 ```
-</div>
 </div>
 
 <table>
