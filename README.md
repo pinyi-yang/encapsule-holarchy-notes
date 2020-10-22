@@ -15,49 +15,24 @@
 
 #### Holarchy Core
 
-<strong>
-**test test**
-</strong>
+<div><strong>clear boolean flag at path</strong></div>
 
 ```javascript
 const actionRequest = {holarchy: {cm: {actions: {ocd: {clearBooleanFlag: {path: "~. or #."}}}}}}
 ```
-
-<table>
-    <tr>
-        <th width=300>action</th>
-        <th>action request</th>
-    </tr>
-    <tr>
-        <td>clear a boolean falg at path</td>
-        <td>
-
-```javascript
-const actionRequest = {holarchy: {cm: {actions: {ocd: {clearBooleanFlag: {path: "~. or #."}}}}}}
-```
-</td>
-    </tr>
-    <tr>
-        <td>set a boolean falg at path</td>
-        <td>
+<div><strong>set boolean flag att path</strong></div>
 
 ```javascript
 const actionRequest = {holarchy: {cm: {actions: {ocd: {setBooleanFlag: {path: "~. or #."}}}}}}
 ```
-</td>
-    </tr>
-    <tr>
-        <td>read name space indrectly</td>
-        <td>
+
+<div><strong>read name space indrectly</strong></div>
 
 ```javascript
 const actionRequest = {holarchy: {cm: {actions: {ocd: {readNamespaceIndirect: {path2: "~. or #."}}}}}}
 ```
-</td>
-    </tr>
-    <tr>
-        <td>write sub action response</td>
-        <td>
+
+<div><strong>write sub action response</strong></div>
 
 ```javascript
 const actionRequest = {holarchy: {core: {writeSubactionResponse: {
@@ -70,20 +45,10 @@ const actionResult: {
     result: {} //opaque
 }
 ```
-</td>
-    </tr>
-</table>
-
+<br>
 
 #### Cell Process Manager (CPM)
-<table>
-    <tr>
-        <th width= 300>action</th>
-        <th>action request</th>
-    </tr>
-    <tr>
-        <td>create a new owned process</td>
-            <td>
+<div><strong>create a new owned process</strong></div>
 
 ```javascript
 const actionRequest = {CellProcessor: {process: {
@@ -105,13 +70,8 @@ const actionResult = {
     cellProcessID: "irut"
 }
 ```
-</td>
-    </tr>
-    <tr>
-        <td>delete a owned process</br> 
-            (and the process tree under it)
-        </td>
-        <td>
+
+<div><strong>delete a owned process</strong> (and the process tree under it)</div>
 
 ```javascript
 const actionRequest = {CellProcessor: {process: {
@@ -130,19 +90,10 @@ const actionResult = {
 }
 ```
 
-</td>
-    </tr>
-</table>
+<br>
 
 #### Cell Process Proxy
-<table>
-    <tr>
-        <th width= 300>action</th>
-        <th>action request</th>
-    </tr>
-    <tr>
-        <td>connect a proxy to a shared process</td>
-        <td>
+<div><strong>connect a proxy to a shared process</strong></div>
 
 ```javascript
 const actionRequest = {CellProcessor: {proxy: {
@@ -159,13 +110,8 @@ const actionRequest = {CellProcessor: {proxy: {
 
 const actionResult = {} //TBD
 ```
-</td>
-    </tr>
-    <tr>
-        <td>disconnect a proxy to a shared process.</br> 
-            If the shared process is not connect by other proxy, it will be deleted
-        </td>
-        <td>
+
+<div><strong>disconnect a proxy to a shared process.</strong> (If the shared process is not connect by other proxy, it will be deleted)</div>
 
 ```javascript
 const actionRequest = {CellProcessor: {proxy: {
@@ -176,35 +122,23 @@ const actionRequest = {CellProcessor: {proxy: {
 
 const actionResult = {} //TBD
 ```
-</td>
-    </tr>
-</table>
+<br>
 
 ### Transition Operators (TOP)
 * [Holarchy Core](#Holarchy-Core-1)
 * [Cell Process Manager (CPM)](#Cell-Process-Manager-(CPM)-1)
 * [Cell Process Proxy](#Cell-Process-Proxy-1)
+<br>
 
 #### Holarchy Core
-<table>
-    <tr>
-        <th width= 200>Transitions</th>
-        <th>Transition Operator</th>
-    </tr>
-    <tr>
-        <td>array is empty</td>
-        <td>
+
+<div><strong>array is empty</strong></div>
 
 ```javascript
-const actionRequest = {holarchy: {cm: {operators: {ocd: {arrayIsEmpty: {
-    path: "~. or #."
-}}}}}}
+const actionRequest = {holarchy: {cm: {operators: {ocd: {arrayIsEmpty: {path: "~. or #."}}}}}}
 ```
-</td>
-    </tr>
-    <tr>
-        <td>array length equal to</td>
-        <td>
+
+<div><strong>array length equal to</strong></div>
 
 ```javascript
 const actionRequest = {holarchy: {cm: {operators: {ocd: {array: {
@@ -212,11 +146,11 @@ const actionRequest = {holarchy: {cm: {operators: {ocd: {array: {
     legnth: {equalToValue: ""} //ocd path or a number
 }}}}}}
 ```
-</td>
-    </tr>
-    <tr>
-        <td>compare values</td>
-        <td>
+
+<div>
+    <strong>compare values</strong><br>
+    There are greater than, identical to and less than transitor operators in the holarchy core as well.
+</div>
 
 ```javascript
 const actionRequest = {holarchy: {cm: {operators: {ocd: {compare: {values: {
@@ -229,36 +163,20 @@ const actionRequest = {holarchy: {cm: {operators: {ocd: {compare: {values: {
     operator: "=== or == or < or <= or > or >="
 }}}}}}}
 ```
-</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>There are greater than, identical to and less than transitor operators in the holarchy core as well.
-        </td>
-    </tr>
-    <tr>
-        <td>is namespace truthy</td>
-        <td>
+
+
+<div><strong>is namespace truthy</strong></div>
 
 ```javascript
-const actionRequest = {holarchy: {cm: {operators: {ocd: {isNamespaceTruthy: {
-    path: "#. or ~."
-}}}}}}
+const actionRequest = {holarchy: {cm: {operators: {ocd: {isNamespaceTruthy: {path: "#. or ~."}}}}}}
 ```
-</td>
-    </tr>
-    <tr>
-        <td>namespace is map keyless</td>
-        <td>
+
+<div><strong>namespace is map keyless</strong></div>
 
 ```javascript
-const actionRequest = {holarchy: {cm: {operators: {ocd: {mapIsKeyless: {
-    path: "#. or ~."
-}}}}}}
+const actionRequest = {holarchy: {cm: {operators: {ocd: {mapIsKeyless: {path: "#. or ~."}}}}}}
 ```
-</td>
-    </tr>
-</table>
+
 
 
 #### Cell Process Manager (CPM)
