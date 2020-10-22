@@ -15,7 +15,9 @@
 
 #### Holarchy Core
 
-<div style="border-bottom: 1px black solid">test test</div>
+<strong>
+**test test**
+</strong>
 
 ```javascript
 const actionRequest = {holarchy: {cm: {actions: {ocd: {clearBooleanFlag: {path: "~. or #."}}}}}}
