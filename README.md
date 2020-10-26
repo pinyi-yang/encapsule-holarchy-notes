@@ -5,13 +5,13 @@
 * [Observable Process Controller (OPC)](./opc.md)
 
 ## Built-in Libraries
-* [Controller Actions (ACT)](#Controller-Actions-(ACT))
-* [Transition Operators (TOP)](#Transition-Operators-(TOP))
+* [Controller Actions (ACT)](#Controller-Actions-ACT)
+* [Transition Operators (TOP)](#Transition-Operators-TOP)
 
 ### Controller Actions (ACT)
 * [Holarchy Core](#Holarchy-Core)
-* [Cell Process Manager (CPM)](#Cell-Process-Manager-(CPM))
-* [Cell Process Proxy](#Cell-Process-Proxy)
+* [Cell Process Manager (CPM)](#Cell-Process-Manager-CPM)
+* [Cell Process Proxy (CPP)](#Cell-Process-Proxy-CPP)
 
 #### Holarchy Core
 
@@ -45,7 +45,7 @@ const actionResult: {
     result: {} //opaque
 }
 ```
-<br>
+<hr>
 
 #### Cell Process Manager (CPM)
 <div><strong>create a new owned process</strong></div>
@@ -90,9 +90,9 @@ const actionResult = {
 }
 ```
 
-<br>
+<hr>
 
-#### Cell Process Proxy
+#### Cell Process Proxy (CPP)
 <div><strong>connect a proxy to a shared process</strong></div>
 
 ```javascript
@@ -116,8 +116,7 @@ const actionResult = {} //TBD
 ```javascript
 const actionRequest = {CellProcessor: {proxy: {
     proxyCoordinates: "#...",
-    connect: {
-        disconnect: {}
+    disconnect: {}
 }}};
 
 const actionResult = {} //TBD
@@ -176,9 +175,22 @@ const actionRequest = {holarchy: {cm: {operators: {ocd: {isNamespaceTruthy: {pat
 ```javascript
 const actionRequest = {holarchy: {cm: {operators: {ocd: {mapIsKeyless: {path: "#. or ~."}}}}}}
 ```
-
-
+<hr>
 
 #### Cell Process Manager (CPM)
 
-#### Cell Process Proxy
+<hr>
+
+#### Cell Process Proxy (CPP)
+<div><strong>proxy status is</strong></div>
+
+```javascript
+const actionRequest = {CellProcessor: {proxy: {
+    proxyCoordinates: "#.",
+    connect: {
+        statusIs: "connected" //or disconnected or broken
+    }
+}}}
+```
+
+<hr>
