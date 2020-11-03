@@ -90,6 +90,57 @@ const actionResult = {
 }
 ```
 
+<div><strong>delegate an action request</strong></div>
+
+```javascript
+const actionRequest = {CellProcessor: {cell: {
+    cellCoordinates: {
+        // string of cell process path or cell process ID
+        //or 
+        apmID: "irut",
+        instanceName: "",
+    },
+    delegate: {
+        actionRequest: {} //sub aciton request
+    }
+}}};
+
+const actionResult = {
+    //opaque
+}
+```
+
+<div><strong>query a cell</strong> get subsystem cells</div>
+
+```javascript
+const actionRequest = {CellProcessor: {cell: {
+    cellCoordinates: {
+        // string of cell process path or cell process ID
+        //or 
+        apmID: "irut",
+        instanceName: "",
+    },
+    query: {
+        filterBy: {apmIDs: [""]},
+        // resultSets undefined give all sub namespace true.
+        resultSets: {parent: false, ancestors: false, children: false, descendants: false}
+    }
+}}};
+
+const actionResult = {
+    query: {
+        cellProcessID: "",
+        apmBindingPath: "",
+        apmID: "",
+        resultSets: {...}
+    },
+    parent: {cellProcessID: "", apmBindingPath: "", apmID: ""},
+    ancestors: [{cellProcessID: "", apmBindingPath: "", apmID: ""}],
+    children: [{cellProcessID: "", apmBindingPath: "", apmID: ""}],
+    descendants: [{cellProcessID: "", apmBindingPath: "", apmID: ""}],
+}
+```
+
 <hr>
 
 #### Cell Process Proxy (CPP)
