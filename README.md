@@ -247,9 +247,9 @@ const actionRequest = {CellProcessor: {cell: {
 ```javascript
 const actionRequest = {CellProcessor: {cell: {
     cellCoordinates: {apmID: "", instanceName: ""}, // apmBindingPath, cellProcessID or relative path
-    query: {inStep: {
-        apmStep: ["step name"] // or a string of step
-    }} 
+    delegate: {
+        operatorRequest: {} //a TOP
+    } 
 }}}
 ```
 
