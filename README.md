@@ -176,8 +176,8 @@ const actionResult = {} //TBD
 
 ### Transition Operators (TOP)
 * [Holarchy Core](#Holarchy-Core-1)
-* [Cell Process Manager (CPM)](#Cell-Process-Manager-(CPM)-1)
-* [Cell Process Proxy](#Cell-Process-Proxy-1)
+* [Cell Process Manager (CPM)](#Cell-Process-Manager-CPM-1)
+* [Cell Process Proxy (CPP)](#Cell-Process-Proxy-CPP-1)
 <br>
 
 #### Holarchy Core
@@ -228,9 +228,92 @@ const actionRequest = {holarchy: {cm: {operators: {ocd: {mapIsKeyless: {path: "#
 ```
 <hr>
 
+
+
 #### Cell Process Manager (CPM)
+<div><strong>Cell is at step</strong></div>
+
+```javascript
+const actionRequest = {CellProcessor: {cell: {
+    cellCoordinates: {apmID: "", instanceName: ""}, // apmBindingPath, cellProcessID or relative path
+    query: {inStep: {
+        apmStep: ["step name"] // or a string of step
+    }} 
+}}}
+```
+
+<div><strong>Operator delegation</strong></div>
+
+```javascript
+const actionRequest = {CellProcessor: {cell: {
+    cellCoordinates: {apmID: "", instanceName: ""}, // apmBindingPath, cellProcessID or relative path
+    query: {inStep: {
+        apmStep: ["step name"] // or a string of step
+    }} 
+}}}
+```
+
+<div><strong>Ancestor Processes Active</strong></div>
+
+```javascript
+const actionRequest = {CellProcessor: {cell: {
+    cellCoordinates: {apmID: "", instanceName: ""}, // apmBindingPath, cellProcessID or relative path
+    query: {
+        filterBy: ["apm ID"], // or a single apm ID string
+        ancestorProcessesActive: {}
+    } 
+}}}
+```
+
+<div><strong>Ancestor Processes all in step</strong></div>
+
+```javascript
+const actionRequest = {CellProcessor: {cell: {
+    cellCoordinates: {apmID: "", instanceName: ""}, // apmBindingPath, cellProcessID or relative path
+    query: {
+        filterBy: ["apm ID"], // or a single apm ID string
+        ancestorProcessesAllInStep: {
+            apmStep: ["step name"], // or a single step name string
+            omitCellProcessor: true // default true, exclude the CPM process step
+        }
+    } 
+}}}
+```
+
+<div><strong>Ancestor Processes any in step</strong></div>
+
+```javascript
+const actionRequest = {CellProcessor: {cell: {
+    cellCoordinates: {apmID: "", instanceName: ""}, // apmBindingPath, cellProcessID or relative path
+    query: {
+        filterBy: ["apm ID"], // or a single apm ID string
+        ancestorProcessesAnyInStep: {
+            apmStep: ["step name"], // or a single step name string
+            omitCellProcessor: true // default true, exclude the CPM process step
+        }
+    } 
+}}}
+```
+
+**Same pattern can also be applied to other relationship (ancestor, parent, child and descendant)**
+* Active:
+    * ancestorProcessesActive
+    * parentProcessActive
+    * childProcessesActive
+    * descendantProcessesActive
+* All in step:
+    * ancestorProcessesAllInStep
+    * parentProcessInStep (single process, no CPM omit option)
+    * childProcessesAllInStep
+    * descendantProcessesAllInStep
+* Any in Step: 
+    * ancestorProcessesAnyInStep
+    * childProcessesAnyInStep
+    * descendantProcessesAnyInStep
 
 <hr>
+
+
 
 #### Cell Process Proxy (CPP)
 <div><strong>proxy status is</strong></div>
