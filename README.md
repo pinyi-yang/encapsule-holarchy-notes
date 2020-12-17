@@ -8,31 +8,59 @@
 * [Controller Actions (ACT)](#Controller-Actions-ACT)
 * [Transition Operators (TOP)](#Transition-Operators-TOP)
 
+<div id="ACTs-list"></div>
+
 ### Controller Actions (ACT)
+[Back to Library List](#Built-in-Libraries)
+
 * [Holarchy Core](#Holarchy-Core)
+    * [clear boolean flag at path](#clear-boolean-flag-at-path)
+    * [set boolean flag at path](#set-boolean-flag-at-path)
+    * [read name space indrectly](#read-name-space-indrectly)
+    * [write sub action response](#write-sub-action-response)
+
 * [Cell Process Manager (CPM)](#Cell-Process-Manager-CPM)
+    * [create a new owned process](#create-a-new-owned-process)
+    * [delete a owned process](#delete-a-owned-process)
+    * [delegate an action request](#delegate-an-action-request)
+    * [query a cell get subsystem cells](#query-a-cell)
+
 * [Cell Process Proxy (CPP)](#Cell-Process-Proxy-CPP)
+    * [connect a proxy to a shared process](#connect-a-proxy-to-a-shared-process)
+    * [disconnect a proxy to a shared process](#disconnect-a-proxy-to-a-shared-process)
 
 #### Holarchy Core
 
-<div><strong>clear boolean flag at path</strong></div>
+<div id="clear-boolean-flag-at-path">
+    <strong>clear boolean flag at path</strong>
+    (<a href="#ACTs-list">back to ACTs List</a>)
+</div>
 
 ```javascript
 const actionRequest = {holarchy: {cm: {actions: {ocd: {clearBooleanFlag: {path: "~. or #."}}}}}}
 ```
-<div><strong>set boolean flag att path</strong></div>
+<div id="set-boolean-flag-at-path">
+    <strong>set boolean flag at path</strong>
+    (<a href="#ACTs-list">back to ACTs List</a>)
+</div> 
 
 ```javascript
 const actionRequest = {holarchy: {cm: {actions: {ocd: {setBooleanFlag: {path: "~. or #."}}}}}}
 ```
 
-<div><strong>read name space indrectly</strong></div>
+<div id="read-name-space-indrectly">
+    <strong>read name space indrectly</strong>
+    (<a href="#ACTs-list">back to ACTs List</a>)
+</div>
 
 ```javascript
 const actionRequest = {holarchy: {cm: {actions: {ocd: {readNamespaceIndirect: {path2: "~. or #."}}}}}}
 ```
 
-<div><strong>write sub action response</strong></div>
+<div id="write-sub-action-response">
+    <strong>write sub action response</strong>
+    (<a href="#ACTs-list">back to ACTs List</a>)
+</div>
 
 ```javascript
 const actionRequest = {holarchy: {core: {writeSubactionResponse: {
@@ -48,7 +76,10 @@ const actionResult: {
 <hr>
 
 #### Cell Process Manager (CPM)
-<div><strong>create a new owned process</strong></div>
+<div id="create-a-new-owned-process">
+    <strong>create a new owned process</strong>
+    (<a href="#ACTs-list">back to ACTs List</a>)
+</div>
 
 ```javascript
 const actionRequest = {CellProcessor: {process: {
@@ -71,7 +102,11 @@ const actionResult = {
 }
 ```
 
-<div><strong>delete a owned process</strong> (and the process tree under it)</div>
+<div id="delete-a-owned-process">
+    <strong>delete a owned process</strong>
+    (<a href="#ACTs-list">back to ACTs List</a>)</br>
+    (and the process tree under it)
+</div>
 
 ```javascript
 const actionRequest = {CellProcessor: {process: {
@@ -90,7 +125,10 @@ const actionResult = {
 }
 ```
 
-<div><strong>delegate an action request</strong></div>
+<div id="delegate-an-action-request">
+    <strong>delegate an action request</strong>
+    (<a href="#ACTs-list">back to ACTs List</a>)
+</div>
 
 ```javascript
 const actionRequest = {CellProcessor: {cell: {
@@ -110,7 +148,10 @@ const actionResult = {
 }
 ```
 
-<div><strong>query a cell</strong> get subsystem cells</div>
+<div id="query-a-cell">
+    <strong>query a cell</strong> get subsystem cells
+    (<a href="#ACTs-list">back to ACTs List</a>)
+</div>
 
 ```javascript
 const actionRequest = {CellProcessor: {cell: {
@@ -144,7 +185,10 @@ const actionResult = {
 <hr>
 
 #### Cell Process Proxy (CPP)
-<div><strong>connect a proxy to a shared process</strong></div>
+<div id="connect-a-proxy-to-a-shared-process">
+    <strong>connect a proxy to a shared process</strong>
+    (<a href="#ACTs-list">back to ACTs List</a>)
+</div>
 
 ```javascript
 const actionRequest = {CellProcessor: {proxy: {
@@ -162,7 +206,11 @@ const actionRequest = {CellProcessor: {proxy: {
 const actionResult = {} //TBD
 ```
 
-<div><strong>disconnect a proxy to a shared process.</strong> (If the shared process is not connect by other proxy, it will be deleted)</div>
+<div id="disconnect-a-proxy-to-a-shared-process">
+    <strong>disconnect a proxy to a shared process.</strong> 
+    (<a href="#ACTs-list">back to ACTs List</a>)</br>
+    (If the shared process is not connect by other proxy, it will be deleted)
+</div>
 
 ```javascript
 const actionRequest = {CellProcessor: {proxy: {
@@ -174,21 +222,45 @@ const actionResult = {} //TBD
 ```
 <br>
 
+<div id="TOPs-list"></div>
+
 ### Transition Operators (TOP)
+[Back to Library List](#Built-in-Libraries)
+
 * [Holarchy Core](#Holarchy-Core-1)
+    * [array is empty](#array-is-empty)
+    * [array length equal to](#array-length-equal-to)
+    * [compare values](#compare-values)
+    * [is namespace truthy](#is-namespace-truthy)
+    * [namespace is map keyless](#namespace-is-map-keyless)
+
 * [Cell Process Manager (CPM)](#Cell-Process-Manager-CPM-1)
+    * [Cell is at step](#cell-is-at-step)
+    * [Operator delegation](#operator-delegation)
+    * [Ancestor (parent, child, descendant) Processes Active](#ancestor-processes-active)
+    * [Ancestor (parent, child, descendant) Processes all in step](#ancestor-processes-all-in-step)
+    * [Ancestor (child, descendant) Processes any in step](#ancestor-processes-any-in-step)
+
 * [Cell Process Proxy (CPP)](#Cell-Process-Proxy-CPP-1)
+    * [proxy status is](#proxy-status-is)
+
 <br>
 
 #### Holarchy Core
 
-<div><strong>array is empty</strong></div>
+<div id="array-is-empty">
+    <strong>array is empty</strong>
+    (<a href="#TOPs-list">back to TOPs List</a>)
+</div>
 
 ```javascript
 const actionRequest = {holarchy: {cm: {operators: {ocd: {arrayIsEmpty: {path: "~. or #."}}}}}}
 ```
 
-<div><strong>array length equal to</strong></div>
+<div id="array-length-equal-to">
+    <strong>array length equal to</strong>
+    (<a href="#TOPs-list">back to TOPs List</a>)
+</div>
 
 ```javascript
 const actionRequest = {holarchy: {cm: {operators: {ocd: {array: {
@@ -197,8 +269,9 @@ const actionRequest = {holarchy: {cm: {operators: {ocd: {array: {
 }}}}}}
 ```
 
-<div>
-    <strong>compare values</strong><br>
+<div id="compare-values">
+    <strong>compare values</strong>
+    (<a href="#TOPs-list">back to TOPs List</a>)<br>
     There are greater than, identical to and less than transitor operators in the holarchy core as well.
 </div>
 
@@ -215,13 +288,19 @@ const actionRequest = {holarchy: {cm: {operators: {ocd: {compare: {values: {
 ```
 
 
-<div><strong>is namespace truthy</strong></div>
+<div id="is-namespace-truthy">
+    <strong>is namespace truthy</strong>
+    (<a href="#TOPs-list">back to TOPs List</a>)
+</div>
 
 ```javascript
 const actionRequest = {holarchy: {cm: {operators: {ocd: {isNamespaceTruthy: {path: "#. or ~."}}}}}}
 ```
 
-<div><strong>namespace is map keyless</strong></div>
+<div id="namespace-is-map-keyless">
+    <strong>namespace is map keyless</strong>
+    (<a href="#TOPs-list">back to TOPs List</a>)
+</div>
 
 ```javascript
 const actionRequest = {holarchy: {cm: {operators: {ocd: {mapIsKeyless: {path: "#. or ~."}}}}}}
@@ -231,33 +310,49 @@ const actionRequest = {holarchy: {cm: {operators: {ocd: {mapIsKeyless: {path: "#
 
 
 #### Cell Process Manager (CPM)
-<div><strong>Cell is at step</strong></div>
+
+<div id="cell-is-at-step">
+    <strong>Cell is at step</strong>
+    (<a href="#TOPs-list">back to TOPs List</a>)
+</div>
 
 ```javascript
 const actionRequest = {CellProcessor: {cell: {
-    cellCoordinates: {apmID: "", instanceName: ""}, // apmBindingPath, cellProcessID or relative path
+    // apmBindingPath, cellProcessID or relative path
+    // default: "#", current cell
+    cellCoordinates: {apmID: "", instanceName: ""}, 
     query: {inStep: {
         apmStep: ["step name"] // or a string of step
     }} 
 }}}
 ```
 
-<div><strong>Operator delegation</strong></div>
+<div id="operator-delegation">
+    <strong>Operator delegation</strong>
+    (<a href="#TOPs-list">back to TOPs List</a>)
+</div>
 
 ```javascript
 const actionRequest = {CellProcessor: {cell: {
-    cellCoordinates: {apmID: "", instanceName: ""}, // apmBindingPath, cellProcessID or relative path
+    // apmBindingPath, cellProcessID or relative path
+    // default: "#", current cell
+    cellCoordinates: {apmID: "", instanceName: ""}, 
     delegate: {
         operatorRequest: {} //a TOP
     } 
 }}}
 ```
 
-<div><strong>Ancestor Processes Active</strong></div>
+<div id="ancestor-processes-active">
+    <strong>Ancestor Processes Active</strong>
+    (<a href="#TOPs-list">back to TOPs List</a>)
+</div>
 
 ```javascript
 const actionRequest = {CellProcessor: {cell: {
-    cellCoordinates: {apmID: "", instanceName: ""}, // apmBindingPath, cellProcessID or relative path
+    // apmBindingPath, cellProcessID or relative path
+    // default: "#", current cell
+    cellCoordinates: {apmID: "", instanceName: ""}, 
     query: {
         filterBy: ["apm ID"], // or a single apm ID string
         ancestorProcessesActive: {}
@@ -265,11 +360,16 @@ const actionRequest = {CellProcessor: {cell: {
 }}}
 ```
 
-<div><strong>Ancestor Processes all in step</strong></div>
+<div id="ancestor-processes-all-in-step">
+    <strong>Ancestor Processes all in step</strong>
+    (<a href="#TOPs-list">back to TOPs List</a>)
+</div>
 
 ```javascript
 const actionRequest = {CellProcessor: {cell: {
-    cellCoordinates: {apmID: "", instanceName: ""}, // apmBindingPath, cellProcessID or relative path
+    // apmBindingPath, cellProcessID or relative path
+    // default: "#", current cell
+    cellCoordinates: {apmID: "", instanceName: ""}, 
     query: {
         filterBy: ["apm ID"], // or a single apm ID string
         ancestorProcessesAllInStep: {
@@ -280,11 +380,16 @@ const actionRequest = {CellProcessor: {cell: {
 }}}
 ```
 
-<div><strong>Ancestor Processes any in step</strong></div>
+<div id="ancestor-processes-any-in-step">
+    <strong>Ancestor Processes any in step</strong>
+    (<a href="#TOPs-list">back to TOPs List</a>)
+</div>
 
 ```javascript
 const actionRequest = {CellProcessor: {cell: {
-    cellCoordinates: {apmID: "", instanceName: ""}, // apmBindingPath, cellProcessID or relative path
+    // apmBindingPath, cellProcessID or relative path
+    // default: "#", current cell
+    cellCoordinates: {apmID: "", instanceName: ""}, 
     query: {
         filterBy: ["apm ID"], // or a single apm ID string
         ancestorProcessesAnyInStep: {
@@ -316,7 +421,11 @@ const actionRequest = {CellProcessor: {cell: {
 
 
 #### Cell Process Proxy (CPP)
-<div><strong>proxy status is</strong></div>
+
+<div id="proxy-status-is">
+    <strong>proxy status is</strong>
+    (<a href="#TOPs-list">back to TOPs List</a>)
+</div>
 
 ```javascript
 const actionRequest = {CellProcessor: {proxy: {
