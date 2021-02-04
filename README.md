@@ -35,9 +35,9 @@ It contains **low-level ES6 classes**, and **Built-in Cell Models and APIs** for
 |---|---|
 | [Cell Process Manager (CPM)](./build-in-cell-model/cell-process-manager.md) | A runtime synthesized top-level [Cell Model](./core/cell-model.md) during [Cell Processor](./core/cell-processor.md) construction that provides all basic TOPs and ACTs for cell process management  |
 | [Cell Process Proxy (CPP)](./build-in-cell-model/cell-process-proxy.md) | A resuable helper cell model that allow developers to link namespace(s) defined in the own AbstractProcess Model(s) memory specifications to other cell processes |
-| [Observable Value Factory](./build-in-cell-model/observable-value-factory.md) | **New (0.0.50)**.  |
-| [Value Observer](./build-in-cell-model/value-observer.md) | **New (0.0.50)**. |
-| [Value Observer Worker Factory](./build-in-cell-model/value-observer-worker-factory.md) | **New (0.0.50)**. |
+| [Observable Value Factory](./build-in-cell-model/observable-value-factory.md) | **New (0.0.50)**.  A filter that manufactures a specialized ObservableValue Cell Model that (`todo add more description`)|
+| [Value Observer](./build-in-cell-model/value-observer.md) | **New (0.0.50)**. a Cell Model provides a generic way to evaluate transtion operators (TOPs) and perform actions on an ObservableValue Cell |
+| [Value Observer Worker Factory](./build-in-cell-model/value-observer-worker-factory.md) | **New (0.0.50)**. A filter that manufactures a specialized ValueObserverWorker Cell Model that (`todo add more description`) |
 
 ### Built-in Controller Action List
 * **[Holarchy Core](./controller-action-apis.md#Holarchy-Core)**
