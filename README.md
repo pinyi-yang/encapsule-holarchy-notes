@@ -21,10 +21,13 @@ It contains **low-level ES6 classes**, and **Built-in Cell Models and APIs** for
 
 |ES6 Class| Description |
 |---|---|
-| [Abstract Process Model](./core/abstract-process-model.md) | defines memory requirements and/or FSM-modeled stateful process behaviors abstractly as a declarative JSON document. |
-| [Controller Action](./core/controller-action.md) | ControllerAction plug-ins are used to read and write data to the OCD. |
-| [Cell Model](./core/cell-model.md) |  defines an association between a group of APM, TOP, ACT, and subCM's. |
-| [Cell Processor](./core/cell-processor.md) | accepts a single CM that aggregates all the holarchy artifacts required to deduce OPC configuration, instantiate it, and launch the cellular process. |
+| [Observable Controller Data (OCD)](./core/observable-controller-data.md)| a data storage container used by OPC for storing and managing cellular process runtime state. |
+| [Observable Process Controller (OPC)](./core/observable-process-controller.mds) |  |
+| [Abstract Process Model (APM)](./core/abstract-process-model.md) | defines memory requirements and/or FSM-modeled stateful process behaviors abstractly as a declarative JSON document. |
+| [Controller Action (ACT)](./core/controller-action.md) | ControllerAction plug-ins are used to read and write data to the OCD. |
+|[Transition Operator (TOP)](./core/transition-operator.md)| is used to read data from the OCD, perform some Boolean operator, and return true/false. |
+| [Cell Model (CM)](./core/cell-model.md) |  defines an association between a group of APM, TOP, ACT, and subCM's. |
+| [Cell Processor (CP)](./core/cell-processor.md) | accepts a single CM that aggregates all the holarchy artifacts required to deduce OPC configuration, instantiate it, and launch the cellular process. |
 | [Cell Process Plane](./core/cell-process-plane.md) | is used to derive CellModel and AbstractProcessModel ID IRUT's from dot-delimited, developer-defined string constants. |
 
 </br>
