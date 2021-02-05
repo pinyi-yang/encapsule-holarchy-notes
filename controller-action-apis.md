@@ -20,6 +20,15 @@
     * [connect a proxy to a shared process](#connect-a-proxy-to-a-shared-process)
     * [disconnect a proxy to a shared process](#disconnect-a-proxy-to-a-shared-process)
 
+* **Observable Value**
+    `todo add Controller Actions after release`
+
+* **Value Observer**
+    `todo add Controller Actions after release`
+
+* **Value Observer Worker**
+    `todo add Controller Actions after release`
+
 ## Holarchy Core
 
 <div id="clear-boolean-flag-at-path">

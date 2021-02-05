@@ -88,6 +88,8 @@ Once a valid value-specified ObservableValue Cell Model is obtained, it can be u
 const hostCellOCDSpec = {
     ____types: "jsObject",
     ____defaultValue: {},
+    ......,
+
     observableValues: { // optional namespace
         ____types: "jsObject",
         ____defaultValue: {},
@@ -98,11 +100,13 @@ const hostCellOCDSpec = {
                 apm: "the irut apm id in the filter"
             }
         }
-    }
+    },
+
+    ......
 }
 ```
 
 **NOTICE**
 A value-specified ObservableValue helper can **ONLY** make a value observable in the host cell. In order to let other cells observe the value, following Cell Models are also necessary:
-* [Value Observer Worker](./value-observer-worker.md): `todo add introduction on function of Value Observer Worker`
+* [Value Observer Worker](./value-observer-worker-factory.md): `todo add introduction on function of Value Observer Worker`
 * [Value Observer](./value-observer.md): `todo add introduction on the function of Value Observer`

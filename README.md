@@ -57,6 +57,15 @@ It contains **low-level ES6 classes**, and **Built-in Cell Models and APIs** for
     * [connect a proxy to a shared process](./controller-action-apis.md#connect-a-proxy-to-a-shared-process)
     * [disconnect a proxy to a shared process](./controller-action-apis.md#disconnect-a-proxy-to-a-shared-process)
 
+* **Observable Value**
+    `todo add Controller Actions after release`
+
+* **Value Observer**
+    `todo add Controller Actions after release`
+
+* **Value Observer Worker**
+    `todo add Controller Actions after release`
+
 
 ### Built-in Transition Operator List
 * **[Holarchy Core](./transition-operator-apis#Holarchy-Core)**
