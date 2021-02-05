@@ -8,6 +8,8 @@
 
 The ObservableValue Cell Model is designed to be used as a **helper** in a host Cell that allows the host to publish its specified property to other [Value Observers](./value-observer.md) for easy observing and access. It is a new cell communication method in Holistic 0.0.50.
 
+`todo add relation between ObservableValue, ValueObserver and ValueObserverWorker`
+
 ## Filter (Create ObservableValue Cell Model)
 Observablue Value Factory can simply create a type-specifed ObservableValue Cell Model for any host cell:
 
@@ -81,3 +83,26 @@ const actionRequest = {holarchy: {cm: {actions: {ObservablueValue: {read: {}}}}}
 function TBD
 
 ## Use ObservableValue Cel Model
+Once a valid value-specified ObservableValue Cell Model is obtained, it can be used as a helper like any other cell model. Here is an example.
+```javascript
+const hostCellOCDSpec = {
+    ____types: "jsObject",
+    ____defaultValue: {},
+    observableValues: { // optional namespace
+        ____types: "jsObject",
+        ____defaultValue: {},
+        nameForSpecifiedObserValue: {
+            ____types: "jsObject",
+            ____defaultValue: {},
+            ____appdsl: {
+                apm: "the irut apm id in the filter"
+            }
+        }
+    }
+}
+```
+
+**NOTICE**
+A value-specified ObservableValue helper can **ONLY** make a value observable in the host cell. In order to let other cells observe the value, following Cell Models are also necessary:
+* [Value Observer Worker](./value-observer-worker.md): `todo add introduction on function of Value Observer Worker`
+* [Value Observer](./value-observer.md): `todo add introduction on the function of Value Observer`
