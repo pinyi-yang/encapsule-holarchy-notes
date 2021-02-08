@@ -9,6 +9,13 @@ The @encapsule/holarchy package is a runtime library (RTL) distributed in the [@
 It contains **low-level ES6 classes**, and **Built-in Cell Models and APIs** for holistic app development (`todo: add link holistic app development`):
 
 * [ES6 Classes](#ES6-Classes)
+    * Observable Controller Data (OCD)
+    * Observable Process Controller (OPC)
+    * Abstract Process Model (APM)
+    * Controller Action (ACT)
+    * Cell Model (CM)
+    * Cell Processor (CP)
+    * Cell Process Plane
 * [Built-in Cell Models and APIs](#Built-in-Cell-Models-and-APIs)
     * [Built-in Cell Models](#Built-in-Cell-Models-List)
     * [Built-in Controller Action List](#Built-in-Controller-Action-List)
