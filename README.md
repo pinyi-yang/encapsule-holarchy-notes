@@ -8,14 +8,17 @@ The @encapsule/holarchy package is a runtime library (RTL) distributed in the [@
 
 It contains **low-level ES6 classes**, and **Built-in Cell Models and APIs** for holistic app development (`todo: add link holistic app development`):
 
+**NOTICE:** If you are looking for document to develop app with encapsule project please go to holistic app development (`todo: add link holistic app development`). This document is for low-level code in encapslue/holarchy which is the base of holistic. If you are intereted in the framework itself, this is the right document.
+
 * [ES6 Classes](#ES6-Classes)
-    * Observable Controller Data (OCD)
-    * Observable Process Controller (OPC)
-    * Abstract Process Model (APM)
-    * Controller Action (ACT)
-    * Cell Model (CM)
-    * Cell Processor (CP)
-    * Cell Process Plane
+    * [Observable Controller Data (OCD)](./core/observable-controller-data.md)
+    * [Observable Process Controller (OPC)](./core/observable-process-controller.md)
+    * [Abstract Process Model (APM)](./core/abstract-process-model.md)
+    * [Controller Action (ACT)](./core/controller-action.md)
+    * [Transition Operator (TOP)](./core/transition-operator.md)
+    * [Cell Model (CM)](./core/cell-model.md)
+    * [Cell Processor (CP)](./core/cell-processor.md)
+    * [Cell Process Plane](./core/cell-process-plane.md)
 * [Built-in Cell Models and APIs](#Built-in-Cell-Models-and-APIs)
     * [Built-in Cell Models](#Built-in-Cell-Models-List)
     * [Built-in Controller Action List](#Built-in-Controller-Action-List)
@@ -28,11 +31,11 @@ It contains **low-level ES6 classes**, and **Built-in Cell Models and APIs** for
 
 |ES6 Class| Description |
 |---|---|
-| [Observable Controller Data (OCD)](./core/observable-controller-data.md)| a data storage container used by OPC for storing and managing cellular process runtime state. |
-| [Observable Process Controller (OPC)](./core/observable-process-controller.mds) |  |
+| [Observable Controller Data (OCD)](./core/observable-controller-data.md) | manages celluar process(es) runtime data on behalf of a Cell Processor |
+| [Observable Process Controller (OPC)](./core/observable-process-controller.md) | provides memory management, and generic evaluation of cellular process(es) (cellular automata). |
 | [Abstract Process Model (APM)](./core/abstract-process-model.md) | defines memory requirements and/or FSM-modeled stateful process behaviors abstractly as a declarative JSON document. |
 | [Controller Action (ACT)](./core/controller-action.md) | ControllerAction plug-ins are used to read and write data to the OCD. |
-|[Transition Operator (TOP)](./core/transition-operator.md)| is used to read data from the OCD, perform some Boolean operator, and return true/false. |
+|[Transition Operator (TOP)](./core/transition-operator.md) | is used to read data from the OCD, perform some Boolean operator, and return true/false. |
 | [Cell Model (CM)](./core/cell-model.md) |  defines an association between a group of APM, TOP, ACT, and subCM's. |
 | [Cell Processor (CP)](./core/cell-processor.md) | accepts a single CM that aggregates all the holarchy artifacts required to deduce OPC configuration, instantiate it, and launch the cellular process. |
 | [Cell Process Plane](./core/cell-process-plane.md) | is used to derive CellModel and AbstractProcessModel ID IRUT's from dot-delimited, developer-defined string constants. |
