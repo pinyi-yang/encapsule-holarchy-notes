@@ -53,8 +53,8 @@ ocdInstance._private = {
     storeData: data,
     storeDataSpec: spec,
     accessFilters: {
-        read: {}, //TBD
-        write: {}   //TBD
+        read: {}, // read filter map by path
+        write: {}   // write filter map by path
     }
 }
 ```
