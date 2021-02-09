@@ -7,6 +7,9 @@
 [arccore filter]: https://encapsule.io/docs/ARCcore/filter
 [cm]: ./cell-model.md
 
+* [Construction](#Construction)
+* [OCD ES6 Class APIs](#OCD-ES6-Class-APIs)
+* [Internal Notes](#Internal-Notes)
 
 Observable Controller Data (OCD) is an ES6 class instantiated withoperator new that encapsulates a shared in-memory store data.
 
@@ -39,3 +42,20 @@ const ocdInstance = new holarchy.ObservableControllerData({
 | .writeNamespace(path_, data_) | write the given data to given path_. data_ spec must match the spec at the path_. return readNamespace result at given path_ after writing |
 | .getNamespaceSpec(path_) | return the spec declaration for the given path_, {result: spec } |
 | .dataPathResolve({apmBindingPath, dataPath}) | return the OCD data path from a relative path (dataPath begin with #) |
+
+# Internal Notes
+
+## Construction
+During the OCD construction, the spec is used to create an [arccore filter][arccore filter] to validate the data. Then, below is stored in the OCD ES6 class _private:
+
+```javascript
+ocdInstance._private = {
+    storeData: data,
+    storeDataSpec: spec,
+    accessFilters: {
+        read: {}, //TBD
+        write: {}   //TBD
+    }
+}
+```
+
