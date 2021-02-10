@@ -1,5 +1,5 @@
 # Encapsule Holarchy Package (0.0.50 Crystallite)
-*last updated 02/04/21*
+*last updated 02/10/21*
 <!-- references -->
 [encapsule]: https://encapsule.io "Encapsule Project Homepage..."
 [github]: https://github.com/Encapsule "Encapsule Project GitHub..."

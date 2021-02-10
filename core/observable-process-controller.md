@@ -13,6 +13,7 @@
 
 * [Construction](#Construction)
 * [OPC ES6 Class APIs](#OPC-ES6-Class-APIs)
+* [Internal Notes](#internal-notes)
 
 Observable Process Controller (OPC) is an ES6 class instantiated with operator new that provides memory management, and generic evaluation of cellular process(es) (cellular automata). Developers do **NOT** typically use the OPC class directly but instead rely on [CellProcessor (CP)][cp] to create and manage an OPC runtime instance on their behalf based on information derived from a [CellModel (CM)][cm].
 
@@ -29,6 +30,8 @@ const opcInstance = new holarchy.ObservableProcessController({
 
     // OCD runtime spec for the opc system
     ocdTemplateSpec: {...}, // default to { ___types: "jsObject"}
+
+    ocdInitData: {...}, // default to {}
 
     // array of arrays of unique Abstract Process Model class instances
     abstractProcessModelSets: [
@@ -72,3 +75,14 @@ const opcInstance = new holarchy.ObservableProcessController({
 | .isValid() | check whether the current OPC instance is valid or not. Return true or false |
 | .toJSON() | Convert the OPC isntance into an JSON object | 
 | .act(request_) | find [ACT][act] that matches request_ and perform the ACT |
+
+## .act(request_)
+The act method allows you to perform any valid registered ACTs in the *controllerActionSets*. In the request_,
+```javascript
+const opcInstance.act({
+    actorName: "name_of_the_actor",
+    actorTaskDescription: "purpose of this action",
+    actionRequest, // object matches one ACT in the controllerActionSets,
+    apmBindingPath, // dot path of the actor, default to relative path #
+})
+```
