@@ -91,6 +91,43 @@ const opcInstance.act({
 The OPC construction will create the below object and store it in the _private:
 
 ```javascript
+opcInstance._private = {
+
+    id: "irut_from_input",
+    iid: "random_irut_for_this_opc",
+    name: "name_from_input",
+    description: "description_from_input",
+    options, // options in the input
+
+    apmMap: {
+        // apmID: apm instance
+    },
+    ocdTemplateSpec, // from input after verification
+    ocdRuntimeSpec, 
+    ocdi, // ocd instance
+    opmiSpecPaths: [
+        {
+            specPath, //dot path
+            opmiRef, //apm instance
+        }, //opmiSpecPath descriptor
+        ...
+    ],
+    actionDispatcherFilterMap: {
+        // operationID: action filter
+    }, 
+    actionDispatcher, // arccore discriminator
+    transitionDispatcherFilterMap: {
+        // operationID: TOP filter
+    },
+    transitionDispatcher, // arccore discriminator
+    constructionWarnings: [],
+    
+
+    //ACT related namespaces
+    opcActorStack: [{...}], //actor descriptor 
+    evalCount: 0,
+    lastEvalResponse: null,
+};
 ```
 
 inherit from construction request: *id, name, description, options* and *ocdTemplateSpec*.
