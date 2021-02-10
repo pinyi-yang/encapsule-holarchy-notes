@@ -13,7 +13,6 @@
 
 * [Construction](#Construction)
 * [OPC ES6 Class APIs](#OPC-ES6-Class-APIs)
-* [Internal Notes](#internal-notes)
 
 Observable Process Controller (OPC) is an ES6 class instantiated with operator new that provides memory management, and generic evaluation of cellular process(es) (cellular automata). Developers do **NOT** typically use the OPC class directly but instead rely on [CellProcessor (CP)][cp] to create and manage an OPC runtime instance on their behalf based on information derived from a [CellModel (CM)][cm].
 
