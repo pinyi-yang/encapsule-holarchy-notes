@@ -33,8 +33,8 @@ It contains **low-level ES6 classes**, and **Built-in Cell Models and APIs** for
 |---|---|
 | [Observable Controller Data (OCD)](./core/observable-controller-data.md) | manages celluar process(es) runtime data on behalf of a Cell Processor |
 | [Abstract Process Model (APM)](./core/abstract-process-model.md) | defines memory requirements and/or Finite-State-Machine modeled stateful process behaviors abstractly as a declarative JSON document. |
-| [Controller Action (ACT)](./core/controller-action.md) | ControllerAction plug-ins are used to read and write data to the OCD. |
-|[Transition Operator (TOP)](./core/transition-operator.md) | is used to read data from the OCD, perform some Boolean operator, and return true/false. |
+| [Controller Action (ACT)](./core/controller-action.md) | is used to read and write data to the OCD in an OPC or CP. |
+| [Transition Operator (TOP)](./core/transition-operator.md) | is used to read data from the OCD, perform some Boolean operator, and return true/false for APM memory judgements. |
 | [Observable Process Controller (OPC)](./core/observable-process-controller.md) | provides memory management, and generic evaluation of cellular process(es) (cellular automata). |
 | [Cell Model (CM)](./core/cell-model.md) |  defines an association between a group of APM, TOP, ACT, and subCM's. |
 | [Cell Processor (CP)](./core/cell-processor.md) | accepts a single CM that aggregates all the holarchy artifacts required to deduce OPC configuration, instantiate it, and launch the cellular process. |
