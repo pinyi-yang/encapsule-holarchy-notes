@@ -126,7 +126,7 @@ In the *steps*, each step descriptor:
 * MUST have the step - *uninitialized*
 * key:value, value is step descriptor
     * *description*: describe the step
-    * *transitions*: a collection of conditions define which step APM will transit.
+    * *transitions*: a collection of conditions define which step APM will transit. The order represents the priority of condition
         * *transitionIf*: a registered [Transition Operator][top]. For a list of built-in TOPs in holarchy, please check the [Transition Operator List][top list]
         * *stepName*: a registered step name in this APM that APM will transit to if above TOP return true
     * *actions*: two collections (*enter* and *exit*) of [Controller Action][act] that will be perform when the APM enter or exist the step respectively. Please check [Controller Action List][act list] for holarchy built-in Controller Actions.
@@ -134,8 +134,8 @@ In the *steps*, each step descriptor:
 For the above example, the *steps* tells APM that:
 always start at uninitialized
 * unitialized:
-    * go to wait_for_data if #.inputs.data is undefined
-    * go to data_received if #.inputs.data is not undefined
+    * go to wait_for_data if #.inputs.data is undefined (evaluate first)
+    * go to data_received if #.inputs.data is not undefined (evaluate second)
 * wait_for_data
     * go to data_received if #.inputs.data is not undefined
 * data_received:
