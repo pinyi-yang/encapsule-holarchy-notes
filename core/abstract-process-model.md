@@ -160,7 +160,7 @@ The APM is actually a graph. Each step in the *steps* will be a vertex with tran
 
 Because APM is a graph. This is another public method not included above - .getDigraph()
 
-![apm graph](../asset/apm_digraph.png =250x250)
+![apm graph](../asset/apm_digraph.png)
 
 ## Construction
 Below happens during an APM instance construction:
