@@ -17,6 +17,8 @@ It contains **low-level ES6 classes**, and **Built-in Cell Models and APIs** for
     * [Transition Operator (TOP)](./core/transition-operator.md)
     * [Observable Process Controller (OPC)](./core/observable-process-controller.md)
     * [Cell Model (CM)](./core/cell-model.md)
+    * [Cell Model Artifact Space (CMAS)](./core/cell-model-artifact-space.md) (0.0.51)
+    * [Cell Model Template (CMT)](./core/cell-model-template.md) (0.0.51)
     * [Cell Processor (CP)](./core/cell-processor.md)
     * [Cell Process Plane](./core/cell-process-plane.md)
 * [Built-in Cell Models and APIs](#Built-in-Cell-Models-and-APIs)
@@ -37,6 +39,8 @@ It contains **low-level ES6 classes**, and **Built-in Cell Models and APIs** for
 | [Transition Operator (TOP)](./core/transition-operator.md) | is used to read data from the OCD, perform some Boolean operator, and return true/false for APM memory judgements. |
 | [Observable Process Controller (OPC)](./core/observable-process-controller.md) | provides memory management, and generic evaluation of cellular process(es) (cellular automata). |
 | [Cell Model (CM)](./core/cell-model.md) |  defines an association between a group of APM, TOP, ACT, and subCM's. |
+| [Cell Model Artifact Space (CMAS)](./core/cell-model-artifact-space.md) |  defines an association between a group of APM, TOP, ACT, and subCM's. |
+| [Cell Model Template (CMT)](./core/cell-model-template.md) |  defines an association between a group of APM, TOP, ACT, and subCM's. |
 | [Cell Processor (CP)](./core/cell-processor.md) | accepts a single CM that aggregates all the holarchy artifacts required to deduce OPC configuration, instantiate it, and launch the cellular process. |
 | [Cell Process Plane](./core/cell-process-plane.md) | is used to derive CellModel and AbstractProcessModel ID IRUT's from dot-delimited, developer-defined string constants. |
 
@@ -49,9 +53,9 @@ It contains **low-level ES6 classes**, and **Built-in Cell Models and APIs** for
 |---|---|
 | [Cell Process Manager (CPM)](./build-in-cell-model/cell-process-manager.md) | A runtime synthesized top-level [Cell Model](./core/cell-model.md) during [Cell Processor](./core/cell-processor.md) construction that provides all basic TOPs and ACTs for cell process management  |
 | [Cell Process Proxy (CPP)](./build-in-cell-model/cell-process-proxy.md) | A resuable helper cell model that allow developers to link namespace(s) defined in the own AbstractProcess Model(s) memory specifications to other cell processes |
-| [Observable Value Factory](./build-in-cell-model/observable-value-factory.md) | **New (0.0.50)**.  A filter that manufactures a specialized ObservableValue Cell Model that (`todo add more description`)|
-| [Value Observer](./build-in-cell-model/value-observer.md) | **New (0.0.50)**. a Cell Model provides a generic way to evaluate transtion operators (TOPs) and perform actions on an ObservableValue Cell |
-| [Value Observer Worker Factory](./build-in-cell-model/value-observer-worker-factory.md) | **New (0.0.50)**. A filter that manufactures a specialized ValueObserverWorker Cell Model that (`todo add more description`) |
+| [Observable Value Template](./build-in-cell-model/observable-value-template.md) | **New (0.0.51)**. (`todo add more description`)|
+| [Observable Value Proxy Worker Template](./build-in-cell-model/observable-value-proxy-worker-template.md) | **New (0.0.51)**.  (`todo add more description`)|
+| [Observable Value Proxy](./build-in-cell-model/observable-value-proxy.md) | **New (0.0.51)**. (`todo add more description`) |
 
 ### Built-in Controller Action List
 * **[Holarchy Core](./controller-action-apis.md#Holarchy-Core)**
