@@ -1,4 +1,4 @@
-# Cell Model Artifact Space
+# Cell Model Artifact Space (CMAS)
 [<- back to Holarchy](../README.md)
 
 <!-- reference -->
@@ -25,6 +25,7 @@ It is a tool for
 * easy creation of traceable and conflict-free runtime irut for [Cell Models][cm], especially for runtime-created [Cell Models][cm]
 * easy index of irut for access [Cell Models][cm] and its cell in [OPC][opc] or [CP][cp]
 
+Table of Content
 * [Construction](#Construction)
 * [CMAS ES6 Class APIs](#CMAS-ES6-Class-APIs)
 * [Example](#Example)
