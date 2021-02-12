@@ -56,7 +56,7 @@ At the root level, one can use its app name as the *spaceLabel*. Suppose there i
 | .makesubspaceInstance(request_) | create a sub CMAS of current CMAS based on the request_ |
 | .getArtifactSpaceLabel() | get current CMAS *spaceLabel* |
 
-* .mapLabels(request_)
+* .mapLabels(request_) ([example](#example))
 ```javascript
 const makeLabelRequest_ = {
     // one or more below
@@ -82,17 +82,15 @@ const makeLabelReturn = {
     }
 }
 ```
-Check [Example][#example] for more details
 
-* .makesubspaceInstance(request_)
+* .makesubspaceInstance(request_) ([example](#example))
 ```javascript
 const request_ = {
     spaceLabel: "sub_space_name"
 }
 ```
-This will make a CMAS as a sub space of current CMAS. Check [Example][#example] for more details
 
-# Example
+## Example
 1. Suppose we are creating an app name: `my_app`. We can start with a CMAS:
 ```javascript
 const holarchy = require("@encapsule/holarchy");
