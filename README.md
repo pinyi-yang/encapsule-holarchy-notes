@@ -39,8 +39,8 @@ It contains **low-level ES6 classes**, and **Built-in Cell Models and APIs** for
 | [Transition Operator (TOP)](./core/transition-operator.md) | is used to read data from the OCD, perform some Boolean operator, and return true/false for APM memory judgements. |
 | [Observable Process Controller (OPC)](./core/observable-process-controller.md) | provides memory management, and generic evaluation of cellular process(es) (cellular automata). |
 | [Cell Model (CM)](./core/cell-model.md) |  defines an association between a group of APM, TOP, ACT, and subCM's. |
-| [Cell Model Artifact Space (CMAS)](./core/cell-model-artifact-space.md) |  defines an association between a group of APM, TOP, ACT, and subCM's. |
-| [Cell Model Template (CMT)](./core/cell-model-template.md) |  defines an association between a group of APM, TOP, ACT, and subCM's. |
+| [Cell Model Artifact Space (CMAS)](./core/cell-model-artifact-space.md) | represents a unique mapping between a CellModel "artifact label" value (a human-readable string) and a set of unique CellModel artifact IRUT ID's within that artifact space.  |
+| [Cell Model Template (CMT)](./core/cell-model-template.md) |   |
 | [Cell Processor (CP)](./core/cell-processor.md) | accepts a single CM that aggregates all the holarchy artifacts required to deduce OPC configuration, instantiate it, and launch the cellular process. |
 | [Cell Process Plane](./core/cell-process-plane.md) | is used to derive CellModel and AbstractProcessModel ID IRUT's from dot-delimited, developer-defined string constants. |
 
