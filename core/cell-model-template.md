@@ -29,6 +29,10 @@ Cell Model Template (CMT) is an ES6 class instantiated with operator new that ca
 * [Construction](#Construction)
 * [CMT ES6 Class APIs](#CMT-ES6-Class-APIs)
 * [Example](#emxaple)
+    * [Define Common Artifact](#Define-Common-Artifact)
+    * [Specialize Synthesized Cell Model](#Specialize-Synthesized-Cell-Model)
+        * [Direct Embedded Specialization](#Direct-Embedded-Specialization)
+        * [Indirect Specialization](#Indirect-Specialization)
 
 # Construction
 To create CMT instance
@@ -109,13 +113,20 @@ cmtInstance.synthesizeCellModel({
 
 # Example
 Below are examples on how CMT uses *generatorFilterBodyFunction* and *synthesizeMethodRequestSpec* to sythesized a special [Cell Model][cm].
+* [Define Common Artifact](#Define-Common-Artifact)
+* [Specialize Synthesized Cell Model](#Specialize-Synthesized-Cell-Model)
+    * [Direct Embedded Specialization](#Direct-Embedded-Specialization)
+    * [Indirect Specialization](#Indirect-Specialization)
 
 ## Define Common Artifact
 Consider a simple CMT: one 
-* with only default "uninitialized" step
-* only [OCD][ocd] namespaces (recommended): `inputs`, `_private` and `outputs` that hold an empty object (They can hold future specialize namespaces)
-* NO other artifacts (ACTs, TOPs, sub CMs...);
-* Allow **NO** specialization on [Cell Model][cm] synthesis (*synthesizeMethodRequestSpec* is empty object).
+* only [OCD][ocd] namespaces (recommended): `inputs`, `_private` and `outputs`.
+    * `inputs` holds a namespace *data* which is a string or undefined.
+    * `_prviate` and `outputs` are empty object
+* two steps - `uninitialized` and `ready`
+    * `uninitialized` => `ready` if *#.inputs.data* is loaded.
+* one ACT (ACT-Load) that loads a string into *#.inputs.data*
+* Allow **NO** specialization on [Cell Model][cm] synthesis ( which means *synthesizeMethodRequestSpec* is empty object).
 
 Because the CMT is for this CMT document, let's label its spacelabel `cmtDoc`.
 ```javascript
@@ -132,11 +143,53 @@ const cmtInstance = new holarchy.CellModelTemplate({
             ____types: "jsObject"
         },
         generatorFilterBodyFunction: function({cmtInstance, cellModelLabel, synthesizeRequest}) {
-            // 1. add/create ACTs (skip for this example).
+            // NOTICE: There are at least 2 spaces - cmtInstance (this CMT space) and sythesized CM space.
+            // apm and cm returned are sub space of cmtInstance, we can directly use cmtInstance to make labels.
+            // However, if we need to make artifacts (ACTs, TOPs, sub CMs ...) for the sythesized CM. We need to its own CMAS to make labels.
+            const sythesizedCellModelCMAS = cmtInstance.makeSubspaceInstance({spaceLabel: cellModelLabel});
+            
+            // 1. add/create ACTs.
+            // create ACT - load for sythesized Cell Model (use sythesizedCellModelCMAS)
+            const actLoadID = sythesizedCellModelCMAS.mapLabels({
+                ACT: "Load"
+            }).result.ACTID;
+            const actLoadRequestSpec = {
+                ____types: "jsObejct",
+                cmtDoc: {}};
+            actLoadRequestSpec.cmtDoc[cellModelLabel] = {
+                ____types: "jsObejct",
+                load: {
+                    ____types: "jsObject",
+                    data: {
+                        ____accept: "jsString"
+                    }
+                }
+            }
+            // ACT declaration, please refer to ACT readme for more details
+            const actLoad = {
+                id: actLoadID,
+                name: `${cellModelLabel} - Load`,
+                description: "Load data in the action request into #.inputs.data",
+                // the spec can be anything as long as it is unique.
+                // to avoid duplication, it is recommended to split the current space label by depth
+                actionRequestSpec: actLoadRequestSpec,
+                actionResultSpec: {
+                    // result spec can be customized.
+                    ____accept: "jsString",
+                    ____inValueSet: ["success"]
+                },
+                bodyFunction: function({context, actionRequest}) {
+                    // code to get act request data and write into #.inputs.data
+                    // please check ACT readme for more details
+
+                    return {result: "success"}
+                }
+            }
 
             // 2. add/create TOPs (skip for this example).
 
             // 3. add/create sub, proxy or helper CMs (skip for this example).
+            // you can use CMs from other spaces or create a CMs as a sub space of the sythesized cell model
 
             // 4. create apm declaration with trackable irut (check APM readme for more details). 
             // .mapLabels inherit from CMAS please check (CMAS readme for more details)
@@ -167,7 +220,16 @@ const cmtInstance = new holarchy.CellModelTemplate({
                 steps: {
                     // there will be more steps
                     "uninitialized": {
-                        description: "default starting process step"
+                        description: "default starting process step",
+                        transitions: [
+                            {
+                                transitionIf: {holarchy: {cm: {operators: {ocd: {isNamespaceTruthy: {path: "#.inputs.data"}}}}}},
+                                nextStep: "ready"
+                            }
+                        ]
+                    },
+                    ready: {
+                        description: "data received"
                     }
                 }
             }
@@ -196,26 +258,27 @@ if (!cmtInstance.isValid()) throw new Error(cmtInstance.toJSON());
 module.exports = cmtInstance;
 ```
 
-To make a [Cell Model][cm] with label `cm1`, just simply:
+To make a [Cell Model][cm] with label `cm1` and `cm2`, just simply:
 ```javascript
 console.log(cmtInstance.synthesizeCellModel({
     cellModelLabel: "cm1",
     synthesizeRequest: {}
 }));
+
+console.log(cmtInstance.synthesizeCellModel({
+    cellModelLabel: "cm2",
+    synthesizeRequest: {}
+}));
 ```
+
+It can be seen that although *id* (CM), *apm.id* and ACT-load requet spec of `cm1` and `cm2` are different, mechanism and functionality vice (steps, ocdDataSpec and act function) are the same. They can be consider as 'same' model.
+
+This this because no specialization allowed in this exmaple, everything defined here is common features that shared across all sythesized [Cell Models][cm]. In the follow exmaples - 
 
 
 
 ## Specialize Synthesized Cell Model
-* [Specialize OCD Spec](#Specialize-OCD-Spec)
-* [Specialize APM Step](#Specialize-APM-Step)
-* [Specialize ACTs, TOPs and sub CMs](#Specialize-ACTs,-TOPs-and-sub-CMs)
-* [Specialize Proxy or Helper](#Specialize-Proxy-or-Helper)
 
-### Specialize OCD Spec
+### Direct Embedded Specialization
 
-### Specialize APM Step
-
-### Specialize ACTs, TOPs and sub CMs
-
-### Specialize Proxy or Helper
+### Indirect Specialization
