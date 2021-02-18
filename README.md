@@ -85,22 +85,22 @@ It contains **low-level ES6 classes**, and **Built-in Cell Models and APIs** for
 
 
 ### Built-in Transition Operator List
-* **[Holarchy Core](./transition-operator-apis#Holarchy-Core)**
-    * [array is empty](./transition-operator-apis#array-is-empty)
-    * [array length equal to](./transition-operator-apis#array-length-equal-to)
-    * [compare values](./transition-operator-apis#compare-values)
-    * [is namespace truthy](./transition-operator-apis#is-namespace-truthy)
-    * [namespace is map keyless](./transition-operator-apis#namespace-is-map-keyless)
+* **[Holarchy Core](./transition-operator-apis.md#Holarchy-Core)**
+    * [array is empty](./transition-operator-apis.md#array-is-empty)
+    * [array length equal to](./transition-operator-apis.md#array-length-equal-to)
+    * [compare values](./transition-operator-apis.md#compare-values)
+    * [is namespace truthy](./transition-operator-apis.md#is-namespace-truthy)
+    * [namespace is map keyless](./transition-operator-apis.md#namespace-is-map-keyless)
 
-* **[Cell Process Manager (CPM)](./transition-operator-apis#Cell-Process-Manager-CPM)**
-    * [Cell is at step](./transition-operator-apis#cell-is-at-step)
-    * [Operator delegation](./transition-operator-apis#operator-delegation)
-    * [Ancestor (parent, child, descendant) Processes Active](./transition-operator-apis#ancestor-processes-active)
-    * [Ancestor (parent, child, descendant) Processes all in step](./transition-operator-apis#ancestor-processes-all-in-step)
-    * [Ancestor (child, descendant) Processes any in step](./transition-operator-apis#ancestor-processes-any-in-step)
+* **[Cell Process Manager (CPM)](./transition-operator-apis.md#Cell-Process-Manager-CPM)**
+    * [Cell is at step](./transition-operator-apis.md#cell-is-at-step)
+    * [Operator delegation](./transition-operator-apis.md#operator-delegation)
+    * [Ancestor (parent, child, descendant) Processes Active](./transition-operator-apis.md#ancestor-processes-active)
+    * [Ancestor (parent, child, descendant) Processes all in step](./transition-operator-apis.md#ancestor-processes-all-in-step)
+    * [Ancestor (child, descendant) Processes any in step](./transition-operator-apis.md#ancestor-processes-any-in-step)
 
-* **[Cell Process Proxy (CPP)](./transition-operator-apis#Cell-Process-Proxy-CPP)**
-    * [proxy status is](./transition-operator-apis#proxy-status-is)
+* **[Cell Process Proxy (CPP)](./transition-operator-apis.md#Cell-Process-Proxy-CPP)**
+    * [proxy status is](./transition-operator-apis.md#proxy-status-is)
 
 ## Abbreviations
 
