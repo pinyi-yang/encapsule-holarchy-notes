@@ -1,5 +1,5 @@
 # Encapsule Holarchy Package (0.0.50 Crystallite)
-*last updated 02/11/21*
+*last updated 02/19/21*
 <!-- references -->
 [encapsule]: https://encapsule.io "Encapsule Project Homepage..."
 [github]: https://github.com/Encapsule "Encapsule Project GitHub..."
@@ -53,9 +53,10 @@ It contains **low-level ES6 classes**, and **Built-in Cell Models and APIs** for
 |---|---|
 | [Cell Process Manager (CPM)](./build-in-cell-model/cell-process-manager.md) | A runtime synthesized top-level [Cell Model](./core/cell-model.md) during [Cell Processor](./core/cell-processor.md) construction that provides all basic TOPs and ACTs for cell process management  |
 | [Cell Process Proxy (CPP)](./build-in-cell-model/cell-process-proxy.md) | A resuable helper cell model that allow developers to link namespace(s) defined in the own AbstractProcess Model(s) memory specifications to other cell processes |
-| [Observable Value Template](./build-in-cell-model/observable-value-template.md) | **New (0.0.51)**. (`todo add more description`)|
-| [Observable Value Proxy Worker Template](./build-in-cell-model/observable-value-proxy-worker-template.md) | **New (0.0.51)**.  (`todo add more description`)|
-| [Observable Value Proxy](./build-in-cell-model/observable-value-proxy.md) | **New (0.0.51)**. (`todo add more description`) |
+| [Observable Value (OV) Family ](./build-in-cell-model/observable-value-family.md) | **New (0.0.51)**. (`todo add more description`)|
+| [Observable Value Base (OVB) ](./build-in-cell-model/observable-value-base.md) | **New (0.0.51)**. (`todo add more description`)|
+| [Observable Value Worker (OVW) Family](./build-in-cell-model/observable-value-proxy-worker-template.md) | **New (0.0.51)**.  (`todo add more description`)|
+| [Observable Value Helper (OVH)](./build-in-cell-model/observable-value-helper.md) | **New (0.0.52)**. (`todo add more description`) |
 
 ### Built-in Controller Action List
 * **[Holarchy Core](./controller-action-apis.md#Holarchy-Core)**

@@ -1,4 +1,4 @@
-# Observable Value Template
+# Observable Value Worker Family
 [<- back to Holarchy](../README.md)
 
 <!-- reference -->
