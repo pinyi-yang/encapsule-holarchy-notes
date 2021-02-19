@@ -377,7 +377,7 @@ const cmtInstance = new holarchy.CellModelTemplate({
                     inputs: {
                         ____types: "jsObject",
                         ____defaultValue: {},
-                        data: { ____accept: ["jsString", "jsUndefined] }
+                        data: { ____accept: ["jsString", "jsUndefined"] }
                     },
                     _private: {
                         ____types: "jsObject",
