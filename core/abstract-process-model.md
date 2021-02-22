@@ -17,7 +17,6 @@
 
 * [Construction](#Construction)
 * [APM ES6 Class APIs](#APM-ES6-Class-APIs)
-* [Internal Notes](#internal-notes)
 
 Abstract Process Model (APM) is an ES6 class instantiated withoperator new that represents the shared memory and runtimebehavior(s) of a cell process abstractly (i.e. the means by which anything that an AbstractProcessModel describes is actually orchestrated/executed is not directly specified by an AbstractProcessModel). 
 
@@ -154,45 +153,3 @@ always start at uninitialized
 | .getDescription() | get APM *description* for this APM |
 | .getDataSpec() | get APM *ocdDataSpec* for this APM |
 | .getStepDescriptor(stepName_) | get the value under the stepName_ in *steps* for this APM |
-
-# Internal Notes
-The APM is actually a graph. Each step in the *steps* will be a vertex with transitions **from** it as edges. APM doesn't construct its *ocdDataSpec* into OCD instance, so it doesn't require OCD init data during construction. It is the [OPC][opc]'s job to use the spec to construct an instance at runtime.
-
-Because APM is a graph. This is another public method not included above - .getDigraph()
-
-![apm graph](../asset/apm_digraph.png)
-
-## Construction
-Below happens during an APM instance construction:
-1. create an [arccore filter][arccore filter] with *ocdDataSpec* to validate it.
-2. create a graph with [arccore graph][arccore graph]
-    * add vertext with key, *description* and *actions* of each step in *steps*
-    * add edge with *transitions* for each step (Notice the priority is regarding to the vertex the edge is from.)
-```javascript
-const apmDigraph = empty_graph_created_with_arccore;
-
-//vertex
-apmDigraph.addVertex({
-    u: step_name, // key of step in steps
-    p: {
-        description,
-        actions, // actions from the step, both enter and exit
-    }
-});
-
-// edge
-apmDigraph.addEdge({
-    e: {
-        u: step_name,
-        v: nextStep_in_one_of_transition
-    },
-    p: {
-        priority: order_of_transition_transitions
-        operator: transitionIf_TOP
-    }
-})
-
-```
-
-## .getDigraph()
-Return above APM digraph
