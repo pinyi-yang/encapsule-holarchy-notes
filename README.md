@@ -73,10 +73,9 @@ It contains **low-level ES6 classes**, and **Built-in Cell Models and APIs** for
 |---|---|
 | [Cell Process Manager (CPM)](./build-in-cell-model/cell-process-manager.md) | A runtime synthesized top-level [Cell Model](./core/cell-model.md) during [Cell Processor](./core/cell-processor.md) construction that provides all basic TOPs and ACTs for cell process management  |
 | [Cell Process Proxy (CPP)](./build-in-cell-model/cell-process-proxy.md) | A resuable helper cell model that allow developers to link namespace(s) defined in the own AbstractProcess Model(s) memory specifications to other cell processes |
-| [Observable Value (OV) Family ](./build-in-cell-model/observable-value-family.md) | **New (0.0.52)**. a family of Cell Models provides a counted read/write maibox over a specialized data type. Each member is sythesized through Observable Value Template (a [CMT][cmt] instance) |
-| [Observable Value Base (OVB) ](./build-in-cell-model/observable-value-base.md) | **New (0.0.51)**. (`todo add more description`)|
-| [Observable Value Worker (OVW) Family](./build-in-cell-model/observable-value-proxy-worker-template.md) | **New (0.0.51)**.  (`todo add more description`)|
+| [Observable Value (OV) Family ](./build-in-cell-model/observable-value-family.md) | **New (0.0.52)**. a family of Cell Models sythesized through Observable Value Template (a [CMT][cmt] instance - Observable Value Template), provides a counted read/write maibox over a specialized data type. |
 | [Observable Value Helper (OVH)](./build-in-cell-model/observable-value-helper.md) | **New (0.0.52)**. (`todo add more description`) |
+| [Observable Value Worker (OVW) Family](./build-in-cell-model/observable-value-proxy-worker-template.md) | **New (0.0.51)**.  (`todo add more description`)|
 
 ### Built-in Controller Action List
 * **[Holarchy Core](./controller-action-apis.md#Holarchy-Core)**
@@ -95,14 +94,14 @@ It contains **low-level ES6 classes**, and **Built-in Cell Models and APIs** for
     * [connect a proxy to a shared process](./controller-action-apis.md#connect-a-proxy-to-a-shared-process)
     * [disconnect a proxy to a shared process](./controller-action-apis.md#disconnect-a-proxy-to-a-shared-process)
 
-* **Observable Value**
+* **[Observable Value Family (OV)](./controller-action-apis.md#Observable-Value-Family)**
+    * [read value from an OV](./controller-action-apis.md#ov-read-value)
+    * [write value to an OV](./controller-action-apis.md#ov-write-value)
+    * [reset an OV](./controller-action-apis.md#ov-reset-value)
+
+* **Observable Value Helper**
     `todo add Controller Actions after release`
 
-* **Value Observer**
-    `todo add Controller Actions after release`
-
-* **Value Observer Worker**
-    `todo add Controller Actions after release`
 
 
 ### Built-in Transition Operator List
@@ -122,6 +121,11 @@ It contains **low-level ES6 classes**, and **Built-in Cell Models and APIs** for
 
 * **[Cell Process Proxy (CPP)](./transition-operator-apis.md#Cell-Process-Proxy-CPP)**
     * [proxy status is](./transition-operator-apis.md#proxy-status-is)
+
+* **[Observable Value Family (OV)](./transition-operator-apis.md#Observable-Value-Family)**
+    * [OV is active](./transition-operator-apis.md#ov-value-is-active)
+    * [OV is available to read](./transition-operator-apis.md#ov-value-is-available)
+    * [OV value has updated](./transition-operator-apis.md#ov-value-has-updated)
 
 ## Abbreviations
 

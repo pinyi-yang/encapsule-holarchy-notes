@@ -108,14 +108,14 @@ Once a CMT instance is constructed and valid, it can be used to create a synthes
 ```javascript
 cmtInstance.synthesizeCellModel({
     cellModelLabel: "unique_stable_label",
-    sythesizeRequest: {
-        // match the synthesizeMethodRequestSpec in contruction
+    specializationData: {
+        // match the specializationDataSpec in contruction
     }
 })
 ```
 
 # Example
-Below are examples on how CMT uses *generatorFilterBodyFunction* and *synthesizeMethodRequestSpec* to sythesized a special [Cell Model][cm].
+Below are examples on how CMT uses *generatorFilterBodyFunction* and *specializationDataSpec* to sythesized a special [Cell Model][cm].
 * [Define Common Artifact](#Define-Common-Artifact)
 * [Specialize Synthesized Cell Model](#Specialize-Synthesized-Cell-Model)
     * [Direct Embedded Specialization](#Direct-Embedded-Specialization)

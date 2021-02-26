@@ -21,6 +21,11 @@
 * **[Cell Process Proxy (CPP)](#Cell-Process-Proxy-CPP)**
     * [proxy status is](#proxy-status-is)
 
+* **[Observable Value Family (OV)](#Observable-Value-Family)**
+    * [OV is active](#ov-value-is-active)
+    * [OV is available to read](#ov-value-is-available)
+    * [OV value has updated](#ov-value-has-updated)
+
 <br>
 
 ## Holarchy Core
@@ -212,5 +217,45 @@ const actionRequest = {CellProcessor: {proxy: {
     }
 }}}
 ```
-
 <hr>
+<br>
+
+## Observable Value Family
+<div id="ov-value-is-active">
+    <strong>OV is active (exist at path)</strong>
+    (<a href="#TOPs-list">back to TOPs List</a>)
+</div>
+
+```javascript
+const actionRequest = {holarchy: {common: {operators: {ObservableValue: {valueIsActive: {
+    path: "#.", // relative path of OV inside the provider Cell Model
+}}}}}}
+```
+<br>
+
+<div id="ov-value-is-available">
+    <strong>OV is available (a value has been written)</strong>
+    (<a href="#TOPs-list">back to TOPs List</a>)
+</div>
+
+```javascript
+const actionRequest = {holarchy: {common: {operators: {ObservableValue: {valueIsAvailable: {
+    path: "#.", // relative path of OV inside the provider Cell Model
+}}}}}}
+```
+<br>
+
+<div id="ov-value-has-updated">
+    <strong>OV has a newer value than provided revision</strong>
+    (<a href="#TOPs-list">back to TOPs List</a>)
+</div>
+
+```javascript
+const actionRequest = {holarchy: {common: {operators: {ObservableValue: {valueHasUpdated: {
+    path: "#.", // relative path of OV inside the provider Cell Model
+    lastReadRevision: -1 // version number to compare whether the TOP caller has a different version from the ov at path
+}}}}}}
+```
+<br>
+<hr>
+<br>

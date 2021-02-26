@@ -20,13 +20,12 @@
     * [connect a proxy to a shared process](#connect-a-proxy-to-a-shared-process)
     * [disconnect a proxy to a shared process](#disconnect-a-proxy-to-a-shared-process)
 
-* **Observable Value**
-    `todo add Controller Actions after release`
+* [Observable Value Family (OV)](#Observable-Value-Family)
+    * [read value from an OV](#ov-read-value)
+    * [write value to an OV](#ov-write-value)
+    * [reset an OV](#ov-reset-value)
 
-* **Value Observer**
-    `todo add Controller Actions after release`
-
-* **Value Observer Worker**
+* **Value Value Helper**
     `todo add Controller Actions after release`
 
 ## Holarchy Core
@@ -220,4 +219,53 @@ const actionRequest = {CellProcessor: {proxy: {
 
 const actionResult = {} //TBD
 ```
+<br>
+<hr>
+<br>
+
+## Observable Value Family
+<div id="ov-read-value">
+    <strong>read a value from OV at given path</strong>
+    (<a href="#ACTs-list">back to ACTs List</a>)
+</div>
+
+```javascript
+const actionRequest = {holarchy: {common: {actions: {ObservableValue: {readValue: {
+    path: "#." // relative path of OV inside the provider Cell Model
+}}}}}}
+
+const actionResult: {
+    error: "",
+    result: {} //opaque
+}
+```
+<br>
+
+<div id="ov-write-value">
+    <strong>write a value from OV at given path</strong>
+    (<a href="#ACTs-list">back to ACTs List</a>)
+</div>
+
+```javascript
+const actionRequest = {holarchy: {common: {actions: {ObservableValue: {writeValue: {
+    path: "#.", // relative path of OV inside the provider Cell Model
+    value, // opaque, match the valueTypeSpec
+
+}}}}}}
+```
+<br>
+
+<div id="ov-rest-value">
+    <strong>reset OV at given path</strong>
+    (<a href="#ACTs-list">back to ACTs List</a>)
+</div>
+
+```javascript
+const actionRequest = {holarchy: {common: {actions: {ObservableValue: {resetValue: {
+    path: "#.", // relative path of OV inside the provider Cell Model
+}}}}}}
+```
+<br>
+
+<hr>
 <br>
