@@ -24,6 +24,7 @@
     * [read value from an OV](#ov-read-value)
     * [write value to an OV](#ov-write-value)
     * [reset an OV](#ov-reset-value)
+    * [set a deffered action](#ov-set-defferred-action)
 
 * **Value Value Helper**
     `todo add Controller Actions after release`
@@ -267,5 +268,19 @@ const actionRequest = {holarchy: {common: {actions: {ObservableValue: {resetValu
 ```
 <br>
 
+<div id="ov-set-defferred-action">
+    <strong>set a defferred action for OV</strong>
+    (<a href="#ACTs-list">back to ACTs List</a>)
+</div>
+
+```javascript
+const actionRequest = {holarchy: {common: {actions: {ObservableValue: {setDefferredAction: {
+    path: "#.", // relative path of OV inside the provider Cell Model
+    dact: {
+        //a regestered action request 
+    }
+}}}}}}
+```
+<br>
 <hr>
 <br>

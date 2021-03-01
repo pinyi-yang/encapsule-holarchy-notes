@@ -75,6 +75,9 @@ The sythesized [Cell Model][cm] will share same [ACTs][act], [TOPs][top], steps 
             revision: {
               ____types: "jsNumber",
               ____defaultValue: -1
+            },
+            dact: {
+              ____accept: ["jsUndefined", "jsObject"]
             }
         },
         steps: {
@@ -110,6 +113,7 @@ The sythesized [Cell Model][cm] will share same [ACTs][act], [TOPs][top], steps 
 };
 ```
 ***mailbox.value***: this namespace in ocdDataSpec will be the ONLY specialization for each member in the Observable Value Family. It is defined by the *valueTypeSpec* during [Sythesize Specialized Observable Value Cell Model](#Sythesize-Specialized-Observable-Value-Cell-Model)
+***dact***: dact stands for deferred action which can be defined by the [ACT-setDefferredAction](#set-defferred-action). It stored an registered Controller Action request that will be trigger everytime the [ACT-readValue](#read-value) of a syntesized Observable Value Cell is called. It turns the Observable Value into the lazy evaluation mode. 
 ***cmObservableValueBase***: this subcell is purely a container for the [shared APIs](#Observable-Value-Cell-Model-Family-APIs) in the Observable Value Family. Automatically included in the Observable Value Family.
 <br><br>
 
@@ -146,6 +150,7 @@ The Observable Value Cell Model Family has 3 ACTs and 3 TOPs of its own.
 * [ACT-readValue](#read-value): read the *value* from *mailbox*.
 * [ACT-writeValue](#write-value): write input value into *mailbox.value*.
 * [ACT-resetValue](#reset-value): clear *mailbox*. *mailbox* changes to undefined
+* [ACT-setDefferredAction](#set-defferred-action): set an action request to the *dact* namespace in ocd which will be performed everytime Observable Value Cell ACT-readValue is performed.
 
 **Transition Operator**
 * [TOP-valueIsActive](#value-is-active): check if OV is exists in the provider Cell
@@ -192,6 +197,21 @@ const actionRequest = {holarchy: {common: {actions: {ObservableValue: {writeValu
 ```javascript
 const actionRequest = {holarchy: {common: {actions: {ObservableValue: {resetValue: {
     path: "#.", // relative path of OV inside the provider Cell Model
+}}}}}}
+```
+<br>
+
+<div id="set-defferred-action">
+    <strong>ACT-setDefferredAction</strong>
+    (<a href="#Observable-Value-Cell-Model-Family-APIs">back to List</a>)
+</div>
+
+```javascript
+const actionRequest = {holarchy: {common: {actions: {ObservableValue: {setDefferredAction: {
+    path: "#.", // relative path of OV inside the provider Cell Model
+    dact: {
+        //a regestered action request 
+    }
 }}}}}}
 ```
 <br>

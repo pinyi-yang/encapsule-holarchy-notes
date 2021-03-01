@@ -98,6 +98,7 @@ It contains **low-level ES6 classes**, and **Built-in Cell Models and APIs** for
     * [read value from an OV](./controller-action-apis.md#ov-read-value)
     * [write value to an OV](./controller-action-apis.md#ov-write-value)
     * [reset an OV](./controller-action-apis.md#ov-reset-value)
+    * [set a deffered action for OV](./controller-action-apis.md#ov-set-defferred-action)
 
 * **Observable Value Helper**
     `todo add Controller Actions after release`
