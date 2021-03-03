@@ -2,7 +2,7 @@
 
 # Controller Actions (ACT)
 [<- Back to Holarchy](./README.md)
-
+*last updated 03/01/21*
 
 * **[Holarchy Core](#Holarchy-Core)**
     * [clear boolean flag at path](#clear-boolean-flag-at-path)
@@ -24,7 +24,7 @@
     * [read value from an OV](#ov-read-value)
     * [write value to an OV](#ov-write-value)
     * [reset an OV](#ov-reset-value)
-    * [set a deffered action](#ov-set-defferred-action)
+    * [set a deferred action](#ov-set-deferred-action)
 
 * **Value Value Helper**
     `todo add Controller Actions after release`
@@ -268,13 +268,13 @@ const actionRequest = {holarchy: {common: {actions: {ObservableValue: {resetValu
 ```
 <br>
 
-<div id="ov-set-defferred-action">
-    <strong>set a defferred action for OV</strong>
+<div id="ov-set-deferred-action">
+    <strong>set a deferred action for OV</strong>
     (<a href="#ACTs-list">back to ACTs List</a>)
 </div>
 
 ```javascript
-const actionRequest = {holarchy: {common: {actions: {ObservableValue: {setDefferredAction: {
+const actionRequest = {holarchy: {common: {actions: {ObservableValue: {setDeferredAction: {
     path: "#.", // relative path of OV inside the provider Cell Model
     dact: {
         //a regestered action request 

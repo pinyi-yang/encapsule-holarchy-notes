@@ -1,5 +1,6 @@
 # Cell Model Artifact Space (CMAS)
 [<- back to Holarchy](../README.md)
+*last updated 03/03/21*
 
 <!-- reference -->
 <!-- external references -->
@@ -46,7 +47,10 @@ module.exports = cmasInstance;
 
 *spaceLabel* is a artifact label (a human-readable string) for [Cell Model][cm] (a space). It will defined the irut for all your [ACTs][act], [TOPs][top] and sub [Cell Models][cm] (sub spaces) with the [CMAS ES6 Class APIs](#CMAS-ES6-Class-APIs) based on their own labels.
 
-At the root level, one can use its app name as the *spaceLabel*. Suppose there is a [Cell Model][cm] - some_cm in that app, then the *spaceLabel* can be `app_name.some_cm`, or you care use the .makeSubspaceInstance method (which is recommended) in `app_name` cmasInstance.
+At the root level, one can use its app name as the *spaceLabel*. To check the spaceLabel of a CMAS instance:
+```javascript
+const spacelabeOfCMAS = cmasInstance.spaceLabel;
+```
 
 # CMAS ES6 Class APIs
 | Method | Description |
@@ -55,7 +59,6 @@ At the root level, one can use its app name as the *spaceLabel*. Suppose there i
 | .toJSON() | Convert the CMAS isntance into an JSON object |
 | .mapLabels(request_) | get iruts for ACTs, TOPs, CMs and so on for current CMAS based on input |
 | .makesubspaceInstance(request_) | create a sub CMAS of current CMAS based on the request_ |
-| .getArtifactSpaceLabel() | get current CMAS *spaceLabel* |
 
 * .mapLabels(request_) ([example](#example))
 ```javascript
@@ -63,8 +66,8 @@ const makeLabelRequest_ = {
     // one or more below
     CM: "cm_name",
     APM: "apm_name",
-    ACT: "act_name",
-    TOP: "top_name",
+    ACT: "act_name", // CM label is required
+    TOP: "top_name", // CM label is required
     OTHER: "other_name"
 };
 
@@ -125,31 +128,23 @@ console.log(makeLabelResponse)
 //   }
 // }
 ```
-It gives us a tracable and conflict-free irut for both APM and CM of `some_cm` under the `my_app`.
+It gives us a tracable and conflict-free irut for both APM and CM of `some_cm` under the `my_app` space.
 <br>
 <br>
 
-3. Then we want to create an ACT called `an_action` for `some_cm`.
-**NOTICE**: here we need to enter the space of `some_cm` as one cm is one space. `an_action` is under the `some_cm` space not the `my_app` space
-
-    * So we need to get CMAS of `some_cm` as a sub space of `my_app`
-    * use the CMAS of `some_cm` to get ACT ID for `an_action`
+3. Then we want to create an ACT called `an_action` for a CM `some_cm`.
 ```javascript
-const myAppSomeCMSubCMAS = myAppCMAS.makeSubspaceInstance({spaceLabel: "some_cm"});
-if (!myAppSomeCMSubCMAS.isValid()) throw new Error(myAppSomeCMSubCMAS.toJSON());
 
-//let's check the space label for myAppSomeCMSubCMAS
-console.log(myAppSomeCMSubCMAS.getArtifactSpaceLabel())
-//console: my_app.some_cm
-
-// get irut for an_action in some_cm
 console.log(myAppSomeCMSubCMAS.mapLabels({
+    CM: "some_cm",
     ACT: "an_action"
 }))
 // console: 
 // {
 //   error: null,
 //   result: {
+//     CM: 'some_cm',
+//     CMID: 'M9_rG9wbUN4aRlMZcPBhfQ',
 //     ACT: 'an_action',
 //     ACTID: 'LY9fH4DJ7i-V0q4VwYyNVw',
 //   }
