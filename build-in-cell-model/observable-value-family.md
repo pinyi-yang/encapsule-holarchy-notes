@@ -1,6 +1,6 @@
 # Observable Value Family (OV)
 [<- back to Holarchy](../README.md)
-*last updated 03/01/21*
+*last updated 03/05/21*
 
 <!-- reference -->
 <!-- external references -->
@@ -257,3 +257,10 @@ const actionRequest = {holarchy: {common: {operators: {ObservableValue: {valueHa
 <br>
 
 ## Example
+* Synthesize OV with desired value spec
+* Embeded OV in the value provider cell
+* Interact with OV
+
+### Simple String Observable Value
+
+### User Spec

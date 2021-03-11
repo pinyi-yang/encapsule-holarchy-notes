@@ -1,6 +1,6 @@
 # Cell Model Artifact Space (CMAS)
 [<- back to Holarchy](../README.md)
-*last updated 03/03/21*
+*last updated 03/05/21*
 
 <!-- reference -->
 <!-- external references -->
@@ -9,7 +9,7 @@
 <!-- core references -->
 [ocd]: ./observable-controller-data.md
 [opc]: ./observable-process-controller.md
-[apm]: ./abstract-process-model.md
+[apm]: ./abstract-process-model.md 
 [top]: ./transition-operator.md
 [act]: ./controller-action.md
 [cp]: ./cell-procssor.md

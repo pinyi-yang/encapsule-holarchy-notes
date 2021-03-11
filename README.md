@@ -1,5 +1,5 @@
 # Encapsule Holarchy Package (0.0.50 Crystallite)
-*last updated 03/01/21*
+*last updated 03/05/21*
 
 <!-- reference -->
 <!-- external references -->
@@ -20,6 +20,7 @@
 <!-- holarchy cm: build-in-cell-model reference -->
 [ovh]: ./build-in-cell-model/observable-value-helper
 [ov]: ./build-in-cell-model/observable-value-family.md
+[dv]: ./build-in-cell-model/display-view-family.md
 <!-- root reference -->
 [top list]: ./transition-operator-apis.md
 [act list]: ./controller-action-apis.md
@@ -73,9 +74,10 @@ It contains **low-level ES6 classes**, and **Built-in Cell Models and APIs** for
 |---|---|
 | [Cell Process Manager (CPM)](./build-in-cell-model/cell-process-manager.md) | A runtime synthesized top-level [Cell Model](./core/cell-model.md) during [Cell Processor](./core/cell-processor.md) construction that provides all basic TOPs and ACTs for cell process management  |
 | [Cell Process Proxy (CPP)](./build-in-cell-model/cell-process-proxy.md) | A resuable helper cell model that allow developers to link namespace(s) defined in the own AbstractProcess Model(s) memory specifications to other cell processes |
-| [Observable Value (OV) Family ](./build-in-cell-model/observable-value-family.md) | **New (0.0.52)**. a family of Cell Models sythesized through Observable Value Template (a [CMT][cmt] instance - Observable Value Template), provides a counted read/write maibox over a specialized data type. |
+| [Observable Value (OV) Family ](./build-in-cell-model/observable-value-family.md) | **New (0.0.52)**. a family of Cell Models sythesized through Observable Value Template (a [CMT][cmt] instance), provides a counted read/write maibox over a specialized data type. |
 | [Observable Value Helper (OVH)](./build-in-cell-model/observable-value-helper.md) | **New (0.0.52)**. (`todo add more description`) |
 | [Observable Value Worker (OVW) Family](./build-in-cell-model/observable-value-proxy-worker-template.md) | **New (0.0.51)**.  (`todo add more description`)|
+| [Display View Family (WIP)][dv] | **New (0.0.57 03/05/21) a family of Cell Models synthesized through Display View Template (a [CMT][cmt] instance) provides `todo: add functionality description` |
 
 ### Built-in Controller Action List
 * **[Holarchy Core](./controller-action-apis.md#Holarchy-Core)**
