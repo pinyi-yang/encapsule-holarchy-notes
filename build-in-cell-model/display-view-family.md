@@ -20,6 +20,7 @@
 [ovh]: ../build-in-cell-model/observable-value-helper
 [ov]: ../build-in-cell-model/observable-value-family.md
 [dv]: ../build-in-cell-model/display-view-family.md
+[dsag filter]: ../build-in-cell-model/display-stream-artifact-generator-filter.md
 <!-- root reference -->
 [top list]: ../transition-operator-apis.md
 [act list]: ../controller-action-apis.md
@@ -132,10 +133,40 @@ const synthesizedDVOCDSpec = {
 
 ### Display View APIs
 WIP
-<!-- 
-1. shared across all members
-2. stored in the DisplayViewBase (as a container) 
- -->
+Display View family have 1 public ACT ([ACT-linkDisplayProcess](#dv-link-display-process)) and 1 private ACT ([ACT-stepWorker](#dv-step-worker)) stored in its subcell DisplayViewBase and shared across all the members
+
+[ACT-linkDisplayProcess](#dv-link-display-process) of a Synthesized Display View CM is mainly used in its corresponding d2r2 
+
+<div id="dv-link-display-process">
+    <strong>ACT-linkDisplayProcess</strong>
+</div>
+
+```javascript
+const actionRequest = {holarchy: {common: {actions: {ObservableValue: {readValue: {
+    path: "#." // relative path of OV inside the provider Cell Model
+}}}}}}
+
+const actionResult: {
+    error: "",
+    result: {} //opaque
+}
+```
+<br>
+
+<div id="dv-step-worker">
+    <strong>ACT-writeValue</strong>
+    (<a href="#Observable-Value-Cell-Model-Family-APIs">back to List</a>)
+</div>
+
+```javascript
+const actionRequest = {holarchy: {common: {actions: {ObservableValue: {writeValue: {
+    path: "#.", // relative path of OV inside the provider Cell Model
+    value, // opaque, match the valueTypeSpec
+
+}}}}}}
+```
+<br>
+
 
 ## Display Stream Message Template
 

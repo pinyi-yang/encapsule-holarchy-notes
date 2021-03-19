@@ -1,6 +1,6 @@
 # Display Stream Artifact Generator Filter (WIP)
 [<- back to Holarchy](../README.md)
-*last updated 03/10/21*
+*last updated 03/18/21*
 
 <!-- reference -->
 <!-- external references -->
@@ -58,13 +58,39 @@ const { CellModel, d2r2Component } = generateResponse.result;
 ### Result
 * *CellModel*: Synthesized Display View CM with *displayViewSynthesizeRequest*
 * *d2r2Component*: a d2r2 component. Its below property is defined by this generator:
-    * *reactComponent*: a extended React.Component class based on the *reactComponentClass* with
-        * construction: add above Synthesized Display View CM ACT-linkDisplayProcess: `display-process-activated`
-        * componentWillUnmount: add above Synthesized Display View CM ACT-linkDisplayProcess: `display-process-deactivating`
+    * *reactComponent*: a extended React.Component class ([View Display Process](#View-Display-Process)) based on the *reactComponentClass* 
     * *renderDataBindingSpec* of the d2r2 component: this generator creates an unique spec based on the apm ID,  *cellModelLabel* and *displayLayoutSpec* of the above *CellModel*.
-At frontend development, to obtain d2r2 *renderDataBindingSpec* for a d2r2 component, the *cellModelLabel* is neccessary:
-`todo: what will be the best practice to obtain it?`
-<!-- 1. synthesize the Displa View CM again
-2. get the apmID
-2. obtain the spec -->
 
+
+#### View Display Process
+View Display Process Class is an extend React.Component class defined by this generator filter with modified:
+* **contruction**: add above Synthesized Display View CM ACT-linkDisplayProcess: `vd-root-activated` or `vd-child-activated` based one the *renderContext.d2r2BusState* passed in.
+* **componentWillUnmount**: add above Synthesized Display View CM ACT-linkDisplayProcess: `display-process-deactivating`
+* **mountSubViewDisplay**: method to render a sub view display by its:
+    * *cmasScope*:
+    * *displayViewCellModelLabel*:
+    * *displayInstance*:
+    * *displayLayout*:
+**mountSubViewDisplay** lets developer convenient use d2r2 components without worrying their actual render spec as the actual render spec of d2r2 components is coded by this generator filter with complex patterns
+
+```javascript
+const d2r2ComponentReactComponent =  class ViewpathPage extends React.Component {
+            constructor(props_) {
+                super(props_);
+                console.log("AppPage::constructor");
+                this.displayName = "AppPage";
+            }
+
+            render() {
+                console.log("AppPage::render");
+                return (
+                    <div>
+                        <h1>{this.displayName}</h1>
+                        // to render a sub view display
+                        {this.mountSubViewDisplay({ cmasScope: app_scope, displayViewCellModelLabel: "any_display_view_label", displayInstance: "unique_name_1", displayLayout: {} })}
+                        {this.mountSubViewDisplay({ cmasScope: app_scope, displayViewCellModelLabel: "any_display_view_label", displayInstance: "unique_name_2", displayLayout: {} })}
+                    </div>
+                );
+            }
+        }
+```
