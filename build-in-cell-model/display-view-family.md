@@ -1,6 +1,6 @@
 # Display View Family (WIP)
 [<- back to Holarchy](../README.md)
-*last updated 03/11/21*
+*last updated 03/22/21*
 
 <!-- reference -->
 <!-- external references -->
@@ -39,6 +39,8 @@ Display View Family has :
 * same [ACTs][act]
 * specialized [OV][ov] at `#.outputs.displayView`
 
+During development, it is recommended to create a Synthesized Display View CM with the [Display Stream Artifact Generator][dsag] so that the synthesized Display View CM and its bundle d2r2 component (`todo: add link to d2r2 component`) can be generated in-sync at the same time.
+
 ### Display View Template
 Display View Template is a [Cell Model Template][cmt] with:
 * *cmasScop*: `@encapsule/holarchy-cm` [CMAS][cmas]
@@ -59,8 +61,8 @@ It is used to synthesize a Display View Family member by the *.synthesizeCellMod
 
 
 ## Synthesize Display View Cell Model
-To synthesized a Display View CM:
-<!-- general code example to synthesize a Display View CM -->
+As mentioned above, It is recommended to create a synthesized Display View CM through the [Display Stream Artifact Generator][dsag]. But if one want to create a synthesized Display View CM without using the built-in generator:
+
 ```javascript
 const holarchyCM = require("@encapsule/holarchy-cm");
 
@@ -81,7 +83,7 @@ const synthesizedDisplayViewCM = synthesisResponse.result;
 ```
 * *cellModelLabel*: a unique name in the `@encapsule/holarchy-cm∂DisplayView` [CMAS][cmas].
 * *description*: developer-provided description of the function/purpose to the synthesized Display View Cell Model.
-* *displayElement.displayLayoutSpec*: an [arccore filter][arccore filter] spec that can take empty argument as filter request (every namespace (except asMap value and array element) in the filter spec must accept undefined, has default value or opaque)
+* *displayElement.displayLayoutSpec*: an [arccore filter][arccore filter] spec that can take empty argument as filter request.
 
 In holistic app development (`todo: add link to holistic app development readme`), *displayElement.displayLayoutSpec* should always match the render data spec of a registered [@encapsule/d2r2][encapsule] component in the Components Router.
 
@@ -98,6 +100,8 @@ const synthesizedDVOCDSpec = {
             ____asMap: true,
             ____defaultValue: {},
             subviewLabel, // Observable Value Helper
+        },
+        dynamicSubDisplayViews, // ObservableValueHelperMap Helper
         }
     },
     outputs: {
@@ -128,8 +132,12 @@ const synthesizedDVOCDSpec = {
 **Steps**
 * uninitialized: default start step
     1. => display-view-initialize
-* display-view-initialize: 
-    1. => display-view-wait-display-process
+* display-view-initialize: (ACT-stepWorker: "initialize")
+    1. => display-view-wait-view-display
+* display-view-wait-view-display:
+    1. `#.core.viewDisplayProcess` truthy  => display-view-display-process-linked
+* display-view-display-process-linked:
+* display-view-quiescent:
 
 ### Display View APIs
 WIP
@@ -140,11 +148,26 @@ Display View family have 1 public ACT ([ACT-linkDisplayProcess](#dv-link-display
 <div id="dv-link-display-process">
     <strong>ACT-linkDisplayProcess</strong>
 </div>
+<!-- ? why does this ACT have a different spec  -->
 
 ```javascript
-const actionRequest = {holarchy: {common: {actions: {ObservableValue: {readValue: {
-    path: "#." // relative path of OV inside the provider Cell Model
-}}}}}}
+const actionRequest = {holarchy: {common: {actions: {service: {html5: {display: {view: {
+    linkDisplayProcess: {
+        notifyEvent: "vd-root-activated", // "vd-child-activated", "vd-deactivating"
+        reactElement: {
+            displayName: "some_name", // cellModelLabel
+            displayPath: "displayInstanceX.displayInstanceY.displayInstanceZ",
+            displayInstance: "unique_name_under_path",
+            displayViewAPMID: "irut", // if React Element is mounted via ViewDisplayProcess::mountSubViewDisplay 
+            // method,
+            thisRef: {
+                // The React.Element sets thisRef to `this` inside its onComponentDidMount and componentWillUnmount
+                // methods so it's backing DisplayView_T cell can stream data to the component directly w/out 
+                // re-render of the entire VDOM. 
+            }
+        }
+    }
+}}}}}}}}
 
 const actionResult: {
     error: "",
